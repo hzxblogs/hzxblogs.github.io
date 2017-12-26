@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/hzxblogs/hzxblogs.github.io.git/"/>
-  <updated>2017-12-26T12:35:29.208Z</updated>
+  <updated>2017-12-26T12:38:20.126Z</updated>
   <id>https://github.com/hzxblogs/hzxblogs.github.io.git/</id>
   
   <author>
@@ -21,13 +21,13 @@
     <link href="https://github.com/hzxblogs/hzxblogs.github.io.git/2017/12/26/Hexo+Github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
     <id>https://github.com/hzxblogs/hzxblogs.github.io.git/2017/12/26/Hexo+Github搭建自己的博客/</id>
     <published>2017-12-26T09:28:55.243Z</published>
-    <updated>2017-12-26T12:35:29.208Z</updated>
+    <updated>2017-12-26T12:38:20.126Z</updated>
     
-    <content type="html"><![CDATA[<p>2017年4月份进行了博客的部署，因为今天想着好久没有发布文章了，进行部署后，发现博客样式变了，索性就重新部署了一下<br>+<a id="more"></a></p><blockquote><ul><li><strong>安装Git</strong> </li></ul></blockquote><hr><p> 1、下载地址   <a href="https://git-for-windows.github.io/" target="_blank" rel="noopener">https://git-for-windows.github.io/</a>  （版本不限）<br> 2、安装选择<br>    一路下一步，直到选择页面如图所示![Git安装选择][1]<br> 3、测试是否安装完毕<br>    在电脑桌面右键包含git bash here。</p><hr><blockquote><ul><li><strong>安装node.js</strong></li></ul></blockquote><hr><p>1、下载地址：<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a><br>2、安装一路下一波即可，路径没有要求（目录尽量中文）</p><hr><blockquote><ul><li><strong>安装hexo并初始化</strong></li></ul></blockquote><hr><p>1、利用 npm 命令即可安装。在任意位置点击鼠标右键，选择Git Bash<br>2、输入命令：npm install -g hexo<br>3、在E盘创建hexo文件夹（e:/hexo） 路径-目录名自己随意。<br>4、在hexo文件夹下，右键运行Git Bash，输入命令：hexo init<br>5、初始化完成，可以选择配置_config.yml文件。具体配置可查百度。<br>6、在hexo文件夹下，右键运行Git Bash，执行 hexo g和hexo s，使用控制台给出的地址访问自己的博客。</p><hr><blockquote><ul><li><strong>github的部署</strong></li></ul></blockquote><hr><p>1.申请github的账号 <a href="https://github.com/">https://github.com/</a><br>2.建立仓库，注意仓库名要与你的GitHub一致，如我的GitHub名是Melody-Fair，那么我的仓库名就是Melody-Fair.github.io。<br>3.在仓库的settings里设置github Pages。</p><p>配置完成。</p><hr><blockquote><ul><li><strong>部署hexo</strong></li></ul></blockquote><hr><p>1.在hexo的文件夹下的_config.yml文件下配置：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:Melody-Fair/Melody-Fair.git </span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p><p>2、hexo g   生成部署文件<br>3、hexo d   进行相关部署<br>部署完成就能通过你的github进行访问了</p>]]></content>
+    <content type="html"><![CDATA[<p>2017年4月份进行了博客的部署，因为今天想着好久没有发布文章了，进行部署后，发现博客样式变了，索性就重新部署了一下<br><a id="more"></a></p><blockquote><ul><li><strong>安装Git</strong> </li></ul></blockquote><hr><p> 1、下载地址   <a href="https://git-for-windows.github.io/" target="_blank" rel="noopener">https://git-for-windows.github.io/</a>  （版本不限）<br> 2、安装选择<br>    一路下一步，直到选择页面如图所示![Git安装选择][1]<br> 3、测试是否安装完毕<br>    在电脑桌面右键包含git bash here。</p><hr><blockquote><ul><li><strong>安装node.js</strong></li></ul></blockquote><hr><p>1、下载地址：<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a><br>2、安装一路下一波即可，路径没有要求（目录尽量中文）</p><hr><blockquote><ul><li><strong>安装hexo并初始化</strong></li></ul></blockquote><hr><p>1、利用 npm 命令即可安装。在任意位置点击鼠标右键，选择Git Bash<br>2、输入命令：npm install -g hexo<br>3、在E盘创建hexo文件夹（e:/hexo） 路径-目录名自己随意。<br>4、在hexo文件夹下，右键运行Git Bash，输入命令：hexo init<br>5、初始化完成，可以选择配置_config.yml文件。具体配置可查百度。<br>6、在hexo文件夹下，右键运行Git Bash，执行 hexo g和hexo s，使用控制台给出的地址访问自己的博客。</p><hr><blockquote><ul><li><strong>github的部署</strong></li></ul></blockquote><hr><p>1.申请github的账号 <a href="https://github.com/">https://github.com/</a><br>2.建立仓库，注意仓库名要与你的GitHub一致，如我的GitHub名是Melody-Fair，那么我的仓库名就是Melody-Fair.github.io。<br>3.在仓库的settings里设置github Pages。</p><p>配置完成。</p><hr><blockquote><ul><li><strong>部署hexo</strong></li></ul></blockquote><hr><p>1.在hexo的文件夹下的_config.yml文件下配置：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:Melody-Fair/Melody-Fair.git </span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p><p>2、hexo g   生成部署文件<br>3、hexo d   进行相关部署<br>部署完成就能通过你的github进行访问了</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;2017年4月份进行了博客的部署，因为今天想着好久没有发布文章了，进行部署后，发现博客样式变了，索性就重新部署了一下&lt;br&gt;+
+      &lt;p&gt;2017年4月份进行了博客的部署，因为今天想着好久没有发布文章了，进行部署后，发现博客样式变了，索性就重新部署了一下&lt;br&gt;
     
     </summary>
     

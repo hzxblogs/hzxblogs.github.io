@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[博客搭建教程]]></title>
       <url>/2017/12/26/Hexo+Github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</url>
-      <content type="html"><![CDATA[<p>2017年4月份进行了博客的部署，因为今天想着好久没有发布文章了，进行部署后，发现博客样式变了，索性就重新部署了一下<br>+<a id="more"></a></p>
+      <content type="html"><![CDATA[<p>2017年4月份进行了博客的部署，因为今天想着好久没有发布文章了，进行部署后，发现博客样式变了，索性就重新部署了一下<br><a id="more"></a></p>
 <blockquote>
 <ul>
 <li><strong>安装Git</strong> </li>
