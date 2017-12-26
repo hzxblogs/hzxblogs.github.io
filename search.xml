@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title></title>
+      <url>/2017/12/26/%E8%83%A1%E9%82%B9%E4%B9%B1%E4%BE%83/</url>
+      <content type="html"></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[博客搭建教程]]></title>
+      <url>/2017/12/26/Hexo+Github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</url>
+      <content type="html"><![CDATA[<blockquote>
+<ul>
+<li><strong>安装Git</strong> </li>
+</ul>
+</blockquote>
+<hr>
+<p> 1、下载地址   <a href="https://git-for-windows.github.io/" target="_blank" rel="noopener">https://git-for-windows.github.io/</a>  （版本不限）<br> 2、安装选择<br>    一路下一步，直到选择页面如图所示![Git安装选择][1]<br> 3、测试是否安装完毕<br>    在电脑桌面右键包含git bash here。</p>
+<hr>
+<blockquote>
+<ul>
+<li><strong>安装node.js</strong></li>
+</ul>
+</blockquote>
+<hr>
+<p>1、下载地址：<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a><br>2、安装一路下一波即可，路径没有要求（目录尽量中文）</p>
+<hr>
+<blockquote>
+<ul>
+<li><strong>安装hexo并初始化</strong></li>
+</ul>
+</blockquote>
+<hr>
+<p>1、利用 npm 命令即可安装。在任意位置点击鼠标右键，选择Git Bash<br>2、输入命令：npm install -g hexo<br>3、在E盘创建hexo文件夹（e:/hexo） 路径-目录名自己随意。<br>4、在hexo文件夹下，右键运行Git Bash，输入命令：hexo init<br>5、初始化完成，可以选择配置_config.yml文件。具体配置可查百度。<br>6、在hexo文件夹下，右键运行Git Bash，执行 hexo g和hexo s，使用控制台给出的地址访问自己的博客。</p>
+<hr>
+<blockquote>
+<ul>
+<li><strong>github的部署</strong></li>
+</ul>
+</blockquote>
+<hr>
+<p>1.申请github的账号 <a href="https://github.com/">https://github.com/</a><br>2.建立仓库，注意仓库名要与你的GitHub一致，如我的GitHub名是Melody-Fair，那么我的仓库名就是Melody-Fair.github.io。<br>3.在仓库的settings里设置github Pages。</p>
+<p>配置完成。</p>
+<hr>
+<blockquote>
+<ul>
+<li><strong>部署hexo</strong></li>
+</ul>
+</blockquote>
+<hr>
+<p>1.在hexo的文件夹下的_config.yml文件下配置：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:Melody-Fair/Melody-Fair.git </span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<p>2、hexo g   生成部署文件<br>3、hexo d   进行相关部署<br>部署完成就能通过你的github进行访问了</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Blogs </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 学习记录 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[数据库序列]]></title>
+      <url>/2017/12/26/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%8F%E5%88%97/</url>
+      <content type="html"><![CDATA[<h2 id="数据库序列"><a href="#数据库序列" class="headerlink" title="数据库序列"></a>数据库序列</h2><p>在ORACLE数据库中，什么是序列呢？它的用途是什么？  </p>
+<p>序列其实是序列号生成器，可以为表中的行自动生成序列号，产生一组等间隔的数值。（类型为数字），其主要的用途是生成表的主键值，可以在插入语句中引用，也可以通过查询检查当前值，或使序列增加至下一个值。</p>
+<p>创建序列:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">创建序列需要CREATE SEQUENCE系统权限。序列的创建语法如下：</span><br><span class="line">CREATE SEQUENCE 序列名 </span><br><span class="line">[INCREMENT BY n] </span><br><span class="line">[START WITH n] </span><br><span class="line">[&#123;MAXVALUE/ MINVALUE n|NOMAXVALUE&#125;] [] </span><br><span class="line">[&#123;CACHE n|NOCACHE&#125;];</span><br></pre></td></tr></table></figure></p>
+<p>说明:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">INCREMENT BY 用于定义序列的步长，如果省略，则默认为1，如果出现负值，则代表序列的值是按照此步长递减的。</span><br><span class="line"></span><br><span class="line">START WITH 定义序列的初始值(即产生的第一个值)，默认为1。</span><br><span class="line"></span><br><span class="line">MAXVALUE 定义序列生成器能产生的最大值。选项NOMAXVALUE是默认选项，代表没有最大值定义，这时对于递增序列，系统能够产生的最大值是10的27次方;对于递减序列，最大值是-1。</span><br><span class="line"></span><br><span class="line">MINVALUE定义序列生成器能产生的最小值。选项NOMAXVALUE是默认选项，代表没有最小值定义，这时对于递减序列，系统能够产生的最小值是?10的26次方;对于递增序列，最小值是1。</span><br><span class="line">cache讲解：</span><br><span class="line"></span><br><span class="line">如果指定CACHE值，Oracle就可以预先在内存里面放置一些Sequence，这样存取的快些。</span><br><span class="line">cache里面的取完后，Oracle自动再取一组到cache。</span><br><span class="line">使用cache或许会跳号， 比如数据库突然不正常down掉（shutdown abort),cache中的Sequence就会丢失。</span><br><span class="line">举个例子：比如你的sequence中cache 100，那当你sequence取到90时突然断电，那么在你重启数据库后，sequence的值将从101开始。</span><br><span class="line"></span><br><span class="line">如果指定NOCACHE值，Oracle就不会预先在内存里面存放Sequence，当然这也就可以避免数据库不正常down掉的sequence丢失。</span><br><span class="line">不过会产生一些问题：创建nocache   sequence在高并发访问时，容易导致rowcache lock等待事件，</span><br><span class="line">主要原因是每次获取nextval时都需要修改rowcache中的字典信息。</span><br><span class="line"></span><br><span class="line">使用nocache  sequence，还会导致如下问题:</span><br><span class="line">由于每次修改字典信息都需要commit,可能导致<span class="built_in">log</span> file sync等待，nocache sequence在RAC环境下，</span><br><span class="line">会对基于sequence生成的列创建的索引造成实例间大量索引块争用</span><br><span class="line">基于以上问题,避免创建nocache sequence。</span><br></pre></td></tr></table></figure></p>
+<p>sequence相关保护机制：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">row cache lock：在调用sequence.nextval情况下需要修改数据字典时发生，对应rowcache lock事件</span><br><span class="line">SQ lock：在内存缓存(并非rowcache)上获取sequence.nextval时发生，对应enq:SQ-contention事件</span><br><span class="line">SV lock：RAC环境下获取cache+order属性的sequence.nextval时发生，对应DFS lock handle事件</span><br></pre></td></tr></table></figure>
+<p>创建一个名称为：SEQUENCE_PARAMID 的序列：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE SEQUENCE SEQUENCE_PARAMID</span><br><span class="line">INCREMENT BY 1</span><br><span class="line">MINVALUE 100001001</span><br><span class="line">MAXVALUE 999999999</span><br><span class="line">NOCYCLE</span><br><span class="line">NOCACHE;</span><br></pre></td></tr></table></figure></p>
+<p>感受：<br>2017年5月份，行内要做学费缴费，银联的POS流水号要传6位不能重复数字，用时间戳不够长度做唯一性识别，所以设计了序列，但是序列的位数怎么确定呢？<br>这里再用到SQL的一个语句：只要不足6位就在前边补0。这个还是周晓靖教我的哈哈，谢谢小静。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select lpad(posSeq.nextval,6,<span class="string">'0'</span>) from dual;</span><br></pre></td></tr></table></figure>
+<p>什么情况下使用cache什么时间上使用nocache?<br>我个人感觉应该尽量使用cache，因为现在的数据库很多都是在高并发的情况下运行的，首先这样可以搞性能，并且也不会产生rowcache lock等待事件。<br>可能有些人会担心数据库不正常的down掉会产生序列号间断，但这也是很少的情况。当然如果你的业务要求是绝不能产生间断的序列号，那就要使用nochache了。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 数据库（ORACLE） </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 学习记录 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[虚拟机部署（一） VMware14虚拟机安装]]></title>
+      <url>/2017/12/26/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%EF%BC%88%E4%B8%80%EF%BC%89%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E5%AE%89%E8%A3%85/</url>
+      <content type="html"><![CDATA[<p>因为本人是Windows系统爱好者，mac系统就不进行讲解了，请大家参照别的博客，谢谢。</p>
+<p>###环境准备<br>安装VMware1464位链接：<a href="https://pan.baidu.com/s/1i4G8HLz" target="_blank" rel="noopener">https://pan.baidu.com/s/1i4G8HLz</a> 密码：j5tg<br>安装centos7系统镜像64位链接：<a href="https://pan.baidu.com/s/1nv5l23n" target="_blank" rel="noopener">https://pan.baidu.com/s/1nv5l23n</a> 密码：ueeg</p>
+<p>###解压安装包进行安装<br>![1.png-68.2kB][1]<br>![2.png-47.4kB][2]<br>![3.png-43.6kB][3]<br>![4.png-39kB][4]<br>![5.png-31.9kB][5]<br>![6.png-34.6kB][6]<br>![7.png-67.9kB][7]<br>![8.png-36.6kB][8]<br>![9.png-65.6kB][9]<br>密钥请在云盘上获取。</p>
+<p>###安装虚拟机<br> ![2.png-56.8kB][10]<br> ![3.png-34.1kB][11]<br> ![4.png-35.3kB][12]<br> ![5.png-33.7kB][13]<br> ![6.png-29.7kB][14]<br> ![7.png-28.7kB][15]<br> ![8.png-35.7kB][16]<br> ![9.png-35.4kB][17]<br> ![10.png-30.3kB][18]<br> ![11.png-34.3kB][19]<br> ![12.png-37.3kB][20]<br> ![13.png-30.3kB][21]<br> ![14.png-35.7kB][22]<br> ![15.png-73.6kB][23]<br> ![16.png-70.8kB][24]<br> ![17.png-35.7kB][25]<br>  [1]: <a href="http://static.zybuluo.com/Melody-Fair/cty2jyazt0hnrnt9ksgx7ynp/1.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/cty2jyazt0hnrnt9ksgx7ynp/1.png</a><br>  [2]: <a href="http://static.zybuluo.com/Melody-Fair/aslwyjh187hl55cu4v3br37l/2.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/aslwyjh187hl55cu4v3br37l/2.png</a><br>  [3]: <a href="http://static.zybuluo.com/Melody-Fair/jdwa4ldhyxtqvd4y101tprzy/3.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/jdwa4ldhyxtqvd4y101tprzy/3.png</a><br>  [4]: <a href="http://static.zybuluo.com/Melody-Fair/fcs1j5uhjvurizozg1gd8hu5/4.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/fcs1j5uhjvurizozg1gd8hu5/4.png</a><br>  [5]: <a href="http://static.zybuluo.com/Melody-Fair/681xrogoolc8u1ngnxu4ojhg/5.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/681xrogoolc8u1ngnxu4ojhg/5.png</a><br>  [6]: <a href="http://static.zybuluo.com/Melody-Fair/k75bzjlcnrytkto1vxxr87jy/6.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/k75bzjlcnrytkto1vxxr87jy/6.png</a><br>  [7]: <a href="http://static.zybuluo.com/Melody-Fair/azmi9goqk4nuz5jnfsoa8w2a/7.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/azmi9goqk4nuz5jnfsoa8w2a/7.png</a><br>  [8]: <a href="http://static.zybuluo.com/Melody-Fair/0p3cjlaxqbd4kka2zpmg70k2/8.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/0p3cjlaxqbd4kka2zpmg70k2/8.png</a><br>  [9]: <a href="http://static.zybuluo.com/Melody-Fair/u5kkv3fxfqky4pr4m7lny0yf/9.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/u5kkv3fxfqky4pr4m7lny0yf/9.png</a><br>  [10]: <a href="http://static.zybuluo.com/Melody-Fair/tz2aym7ii1p7uif32nf7gg2k/2.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/tz2aym7ii1p7uif32nf7gg2k/2.png</a><br>  [11]: <a href="http://static.zybuluo.com/Melody-Fair/0nrr11gdl3sfjir0i06zca98/3.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/0nrr11gdl3sfjir0i06zca98/3.png</a><br>  [12]: <a href="http://static.zybuluo.com/Melody-Fair/v440pym5f7v8yhgysh9df2zg/4.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/v440pym5f7v8yhgysh9df2zg/4.png</a><br>  [13]: <a href="http://static.zybuluo.com/Melody-Fair/i4tfedo00cu0rrg4nx1c1hfv/5.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/i4tfedo00cu0rrg4nx1c1hfv/5.png</a><br>  [14]: <a href="http://static.zybuluo.com/Melody-Fair/wimonudykmn53lq591fbxeeo/6.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/wimonudykmn53lq591fbxeeo/6.png</a><br>  [15]: <a href="http://static.zybuluo.com/Melody-Fair/lmqal3burm4ada58kzv56s3x/7.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/lmqal3burm4ada58kzv56s3x/7.png</a><br>  [16]: <a href="http://static.zybuluo.com/Melody-Fair/d3qlqrya0y56ly372mb33jg3/8.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/d3qlqrya0y56ly372mb33jg3/8.png</a><br>  [17]: <a href="http://static.zybuluo.com/Melody-Fair/e2glyuqyfy7rhb9yhrsgykwq/9.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/e2glyuqyfy7rhb9yhrsgykwq/9.png</a><br>  [18]: <a href="http://static.zybuluo.com/Melody-Fair/xy4n7tipgk94i8dq2pr52gbk/10.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/xy4n7tipgk94i8dq2pr52gbk/10.png</a><br>  [19]: <a href="http://static.zybuluo.com/Melody-Fair/dwy4iff2ohu2ojqej7lfya64/11.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/dwy4iff2ohu2ojqej7lfya64/11.png</a><br>  [20]: <a href="http://static.zybuluo.com/Melody-Fair/49vjzpug0n5ajvn6yodvwwiw/12.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/49vjzpug0n5ajvn6yodvwwiw/12.png</a><br>  [21]: <a href="http://static.zybuluo.com/Melody-Fair/0vnrf6hnuxnbofpz6gx1w3jr/13.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/0vnrf6hnuxnbofpz6gx1w3jr/13.png</a><br>  [22]: <a href="http://static.zybuluo.com/Melody-Fair/b73b8or3nf2rr3ltffmpb6tg/14.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/b73b8or3nf2rr3ltffmpb6tg/14.png</a><br>  [23]: <a href="http://static.zybuluo.com/Melody-Fair/ybvnbnv7hn3lznrdwwjv7qhl/15.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/ybvnbnv7hn3lznrdwwjv7qhl/15.png</a><br>  [24]: <a href="http://static.zybuluo.com/Melody-Fair/is5onsdrwb5022l9kzkjjl0b/16.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/is5onsdrwb5022l9kzkjjl0b/16.png</a><br>  [25]: <a href="http://static.zybuluo.com/Melody-Fair/xdq5ij2xnucrpc1pcmj8877s/17.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/xdq5ij2xnucrpc1pcmj8877s/17.png</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 虚拟机 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 学习记录 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+  
+  
+</search>
