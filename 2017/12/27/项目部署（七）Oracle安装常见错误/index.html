@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="�ڰ�װOracle��ʱ������./runInstaller ���ڲ�Ʒ������ʱ�򱨴���������������̸�۵ıȽ��٣��Ҹ���һ�����ϲŸ㶨�����ڷ��������ҡ�">
-<meta name="keywords" content="ѧϰ��¼">
+<meta name="description" content="在安装Oracle的时候运行./runInstaller 会在产品检查的时候报错。这个错误网上谈论的比较少，我搞了一个晚上才搞定，现在分享给大家。">
+<meta name="keywords" content="学习记录">
 <meta property="og:type" content="article">
-<meta property="og:title" content="��Ŀ�������ߣ�Centos��������װoracle����display at least 256colors">
+<meta property="og:title" content="项目部署（七）Centos虚拟机安装oracle报错display at least 256colors">
 <meta property="og:url" content="https://github.com/hzxblogs/hzxblogs.github.io.git/2017/12/27/项目部署（七）Oracle安装常见错误/index.html">
 <meta property="og:site_name" content="荷包蛋">
-<meta property="og:description" content="�ڰ�װOracle��ʱ������./runInstaller ���ڲ�Ʒ������ʱ�򱨴���������������̸�۵ıȽ��٣��Ҹ���һ�����ϲŸ㶨�����ڷ��������ҡ�">
+<meta property="og:description" content="在安装Oracle的时候运行./runInstaller 会在产品检查的时候报错。这个错误网上谈论的比较少，我搞了一个晚上才搞定，现在分享给大家。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-28T13:15:33.244Z">
+<meta property="og:updated_time" content="2017-12-28T13:29:36.897Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="��Ŀ�������ߣ�Centos��������װoracle����display at least 256colors">
-<meta name="twitter:description" content="�ڰ�װOracle��ʱ������./runInstaller ���ڲ�Ʒ������ʱ�򱨴���������������̸�۵ıȽ��٣��Ҹ���һ�����ϲŸ㶨�����ڷ��������ҡ�">
+<meta name="twitter:title" content="项目部署（七）Centos虚拟机安装oracle报错display at least 256colors">
+<meta name="twitter:description" content="在安装Oracle的时候运行./runInstaller 会在产品检查的时候报错。这个错误网上谈论的比较少，我搞了一个晚上才搞定，现在分享给大家。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>��Ŀ�������ߣ�Centos��������װoracle����display at least 256colors | 荷包蛋</title>
+<title>项目部署（七）Centos虚拟机安装oracle报错display at least 256colors | 荷包蛋</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -192,7 +192,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ѧϰ��¼/">ѧϰ��¼</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
                     </div>
                 </section>
                 
@@ -286,7 +286,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ��Ŀ�������ߣ�Centos��������װoracle����display at least 256colors
+      项目部署（七）Centos虚拟机安装oracle报错display at least 256colors
     </h1>
   
 
@@ -295,13 +295,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/������/">������</a>
+    <a class="article-category-link" href="/categories/虚拟机/">虚拟机</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ѧϰ��¼/">ѧϰ��¼</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -311,33 +311,33 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>�ڰ�װOracle��ʱ������./runInstaller ���ڲ�Ʒ������ʱ�򱨴���������������̸�۵ıȽ��٣��Ҹ���һ�����ϲŸ㶨�����ڷ��������ҡ�<br><a id="more"></a></p>
+        <p>在安装Oracle的时候运行./runInstaller 会在产品检查的时候报错。这个错误网上谈论的比较少，我搞了一个晚上才搞定，现在分享给大家。<br><a id="more"></a></p>
 <blockquote>
 <ul>
-<li><strong>���ǿ�һ�±�����Ϣ</strong> </li>
+<li><strong>我们看一下报错信息</strong> </li>
 </ul>
 </blockquote>
 <hr>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Checking monitor: must be configured to display at least 256colors </span><br><span class="line">&gt;&gt;&gt; Could not execute auto check for display colorsusing command /usr/openwin/bin/xdpyinfo.</span><br><span class="line"> Check if the DISPLAYvariable is set. Failed &lt;&lt;&lt;&lt;</span><br></pre></td></tr></table></figure>
-<p>���� Ҫ����Ҫ��Ҫ����host +��ͨ��</p>
+<p>解决 要点主要是要运行host +打通。</p>
 <hr>
 <blockquote>
 <ul>
-<li><strong>ȷ����������װ�˿��ӻ�ҳ��</strong></li>
+<li><strong>确认虚拟机安装了可视化页面</strong></li>
 </ul>
 </blockquote>
 <hr>
-<p>����û�а�װ���ӻ�ҳ�棬���ο��ҵ���һƪ���£�</p>
+<p>如果没有安装可视化页面，请参考我的另一篇文章：</p>
 <hr>
 <blockquote>
 <ul>
-<li><strong>��ʼ����</strong></li>
+<li><strong>开始解决</strong></li>
 </ul>
 </blockquote>
 <hr>
-<p>1���Ƚ���ROOT�ڣ�<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">su �C root</span><br><span class="line">password:xxxxx</span><br><span class="line">DISPLAY=:0.0; export DISPLAY</span><br><span class="line">echo $DISPLAY</span><br><span class="line">cd /usr/openwin/bin</span><br><span class="line">./xhost</span><br><span class="line">access control enabled, only authorized clients can connect</span><br><span class="line">./xhost +</span><br><span class="line">access control disabled, clients can connect from any host</span><br></pre></td></tr></table></figure></p>
+<p>1．先进入ROOT内：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">su – root</span><br><span class="line">password:xxxxx</span><br><span class="line">DISPLAY=:0.0; export DISPLAY</span><br><span class="line">echo $DISPLAY</span><br><span class="line">cd /usr/openwin/bin</span><br><span class="line">./xhost</span><br><span class="line">access control enabled, only authorized clients can connect</span><br><span class="line">./xhost +</span><br><span class="line">access control disabled, clients can connect from any host</span><br></pre></td></tr></table></figure></p>
 <ol>
-<li>Ȼ������ORACLE</li>
+<li>然后进入ORACLE</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">su - oracle</span><br><span class="line">$ DISPLAY=:0.0; export DISPLAY</span><br><span class="line">$ echo $DISPLAY:0.0</span><br><span class="line">$ ls</span><br><span class="line"> doc          response     stage</span><br><span class="line"> install      runInstaller  welcome.html</span><br><span class="line">$ ./runInstaller</span><br></pre></td></tr></table></figure>
 <hr>
@@ -349,12 +349,12 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/12/27/项目部署（七）Oracle安装常见错误/">��Ŀ�������ߣ�Centos��������װoracle����display at least 256colors</a></p>
+        <p><span>本文标题:</span><a href="/2017/12/27/项目部署（七）Oracle安装常见错误/">项目部署（七）Centos虚拟机安装oracle报错display at least 256colors</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Blog for Y</a></p>
         <p><span>发布时间:</span>2017-12-27, 00:00:00</p>
-        <p><span>最后更新:</span>2017-12-28, 21:15:33</p>
+        <p><span>最后更新:</span>2017-12-28, 21:29:36</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/12/27/项目部署（七）Oracle安装常见错误/" title="��Ŀ�������ߣ�Centos��������װoracle����display at least 256colors">https://github.com/hzxblogs/hzxblogs.github.io.git/2017/12/27/项目部署（七）Oracle安装常见错误/</a>
+            <span>原始链接:</span><a class="post-url" href="/2017/12/27/项目部署（七）Oracle安装常见错误/" title="项目部署（七）Centos虚拟机安装oracle报错display at least 256colors">https://github.com/hzxblogs/hzxblogs.github.io.git/2017/12/27/项目部署（七）Oracle安装常见错误/</a>
             <span class="copy-path" data-clipboard-text="原文: https://github.com/hzxblogs/hzxblogs.github.io.git/2017/12/27/项目部署（七）Oracle安装常见错误/　　作者: Blog for Y" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -368,15 +368,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/12/27/项目部署（八）VNC Server安装/">
-                    ��Ŀ���𣨰ˣ�������VNC Server��װ
+                <a href="/2017/12/27/SELinux介绍/">
+                    SELinux介绍
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/12/27/SELinux介绍/">
-                    SELinux介绍
+                <a href="/2017/12/27/项目部署（五）Centos虚拟机安装Weblogic/">
+                    项目部署（五）Centos虚拟机安装weblogic
                 </a>
             </div>
         
@@ -424,7 +424,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"��Ŀ�������ߣ�Centos��������װoracle����display at least 256colors　| 荷包蛋　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"项目部署（七）Centos虚拟机安装oracle报错display at least 256colors　| 荷包蛋　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -444,7 +444,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/12/27/项目部署（八）VNC Server安装/" title="上一篇: ��Ŀ���𣨰ˣ�������VNC Server��װ">
+            <a href="/2017/12/27/SELinux介绍/" title="上一篇: SELinux介绍">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -452,13 +452,13 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/12/27/SELinux介绍/" title="下一篇: SELinux介绍">
+            <a href="/2017/12/27/项目部署（五）Centos虚拟机安装Weblogic/" title="下一篇: 项目部署（五）Centos虚拟机安装weblogic">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（三）Centos虚拟机与主机互ping问题/">项目部署（三）Centos虚拟机与主机互PING</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（八）VNC Server安装/">��Ŀ���𣨰ˣ�������VNC Server��װ</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（七）Oracle安装常见错误/">��Ŀ�������ߣ�Centos��������װoracle����display at least 256colors</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/SELinux介绍/">SELinux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（五）Centos虚拟机安装Weblogic/">项目部署（五）Centos虚拟机安装weblogic</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（六）虚拟机安装Oracle/">项目部署（六）Centos虚拟机安装oracle</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（四）Centos虚拟机防火墙的打开关闭/">项目部署（四）Centos虚拟机防火墙的打开关闭</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/项目部署（二）JDK1.8安装/">项目部署（二）安装JDK</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/Hexo+Github搭建自己的博客/">博客搭建教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/项目部署（一）虚拟机的安装/">项目部署（一） VMware14虚拟机安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/数据库序列/">数据库序列</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（三）Centos虚拟机与主机互ping问题/">项目部署（三）Centos虚拟机与主机互PING</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（四）Centos虚拟机防火墙的打开关闭/">项目部署（四）Centos虚拟机防火墙的打开关闭</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（六）虚拟机安装Oracle/">项目部署（六）Centos虚拟机安装oracle</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/SELinux介绍/">SELinux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（七）Oracle安装常见错误/">项目部署（七）Centos虚拟机安装oracle报错display at least 256colors</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（五）Centos虚拟机安装Weblogic/">项目部署（五）Centos虚拟机安装weblogic</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（八）VNC Server安装/">项目部署（八）虚拟机VNC Server安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/项目部署（二）JDK1.8安装/">项目部署（二）安装JDK</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/Hexo+Github搭建自己的博客/">博客搭建教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/数据库序列/">数据库序列</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/项目部署（一）虚拟机的安装/">项目部署（一） VMware14虚拟机安装</a></li></ul>
 
 
 

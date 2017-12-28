@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="��Ҫʹ��Linux��Զ������������xmanager֮ǰ�ù����о�һ�㣬���γ�����VNC��   �����˰�װNCServer    1����װVNCServer1#yum -y install vnc *vnc-server* 2���������� 123456789# vncserverYou will require a password to acce">
-<meta name="keywords" content="ѧϰ��¼">
+<meta name="description" content="需要使用Linux的远程桌面服务，xmanager之前用过，感觉一般，这次尝试下VNC。   服务端安装NCServer    1、安装VNCServer1#yum -y install vnc *vnc-server* 2、设置密码 123456789# vncserverYou will require a password to access your desktops.Password:">
+<meta name="keywords" content="学习记录">
 <meta property="og:type" content="article">
-<meta property="og:title" content="��Ŀ���𣨰ˣ�������VNC Server��װ">
+<meta property="og:title" content="项目部署（八）虚拟机VNC Server安装">
 <meta property="og:url" content="https://github.com/hzxblogs/hzxblogs.github.io.git/2017/12/27/项目部署（八）VNC Server安装/index.html">
 <meta property="og:site_name" content="荷包蛋">
-<meta property="og:description" content="��Ҫʹ��Linux��Զ������������xmanager֮ǰ�ù����о�һ�㣬���γ�����VNC��   �����˰�װNCServer    1����װVNCServer1#yum -y install vnc *vnc-server* 2���������� 123456789# vncserverYou will require a password to acce">
+<meta property="og:description" content="需要使用Linux的远程桌面服务，xmanager之前用过，感觉一般，这次尝试下VNC。   服务端安装NCServer    1、安装VNCServer1#yum -y install vnc *vnc-server* 2、设置密码 123456789# vncserverYou will require a password to access your desktops.Password:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-28T13:26:47.930Z">
+<meta property="og:updated_time" content="2017-12-28T13:29:31.044Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="��Ŀ���𣨰ˣ�������VNC Server��װ">
-<meta name="twitter:description" content="��Ҫʹ��Linux��Զ������������xmanager֮ǰ�ù����о�һ�㣬���γ�����VNC��   �����˰�װNCServer    1����װVNCServer1#yum -y install vnc *vnc-server* 2���������� 123456789# vncserverYou will require a password to acce">
+<meta name="twitter:title" content="项目部署（八）虚拟机VNC Server安装">
+<meta name="twitter:description" content="需要使用Linux的远程桌面服务，xmanager之前用过，感觉一般，这次尝试下VNC。   服务端安装NCServer    1、安装VNCServer1#yum -y install vnc *vnc-server* 2、设置密码 123456789# vncserverYou will require a password to access your desktops.Password:">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>��Ŀ���𣨰ˣ�������VNC Server��װ | 荷包蛋</title>
+<title>项目部署（八）虚拟机VNC Server安装 | 荷包蛋</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -192,7 +192,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ѧϰ��¼/">ѧϰ��¼</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
                     </div>
                 </section>
                 
@@ -286,7 +286,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ��Ŀ���𣨰ˣ�������VNC Server��װ
+      项目部署（八）虚拟机VNC Server安装
     </h1>
   
 
@@ -295,13 +295,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/������/">������</a>
+    <a class="article-category-link" href="/categories/虚拟机/">虚拟机</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ѧϰ��¼/">ѧϰ��¼</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -311,27 +311,27 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>��Ҫʹ��Linux��Զ������������xmanager֮ǰ�ù����о�һ�㣬���γ�����VNC��</p>
+        <p>需要使用Linux的远程桌面服务，xmanager之前用过，感觉一般，这次尝试下VNC。</p>
 <blockquote>
 <ul>
-<li><strong>�����˰�װNCServer</strong> </li>
+<li><strong>服务端安装NCServer</strong> </li>
 </ul>
 </blockquote>
-<p>1����װVNCServer<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#yum -y install vnc *vnc-server*</span><br></pre></td></tr></table></figure></p>
-<p>2����������</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># vncserver</span><br><span class="line">You will require a password to access your desktops.</span><br><span class="line">Password: 123456            #����vnc ��������</span><br><span class="line">Verify: 123456                 #ȷ��vnc����</span><br><span class="line">xauth: creating new authority file /root/.Xauthority</span><br><span class="line">New ��localhost.localdomain:1 (root)�� desktop is localhost.localdomain:1</span><br><span class="line">Creating default startup script /root/.vnc/xstartup</span><br><span class="line">Starting applications specified in /root/.vnc/xstartup</span><br><span class="line">Log file is /root/.vnc/localhost.localdomain:1.log</span><br></pre></td></tr></table></figure>
-<p>3����������</p>
-<p>����һ�����ڣ���1�Ŵ���<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># vncserver :1</span><br></pre></td></tr></table></figure></p>
-<p>4��ֹͣ����</p>
+<p>1、安装VNCServer<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#yum -y install vnc *vnc-server*</span><br></pre></td></tr></table></figure></p>
+<p>2、设置密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># vncserver</span><br><span class="line">You will require a password to access your desktops.</span><br><span class="line">Password: 123456            #输入vnc 连接密码</span><br><span class="line">Verify: 123456                 #确认vnc密码</span><br><span class="line">xauth: creating new authority file /root/.Xauthority</span><br><span class="line">New ‘localhost.localdomain:1 (root)’ desktop is localhost.localdomain:1</span><br><span class="line">Creating default startup script /root/.vnc/xstartup</span><br><span class="line">Starting applications specified in /root/.vnc/xstartup</span><br><span class="line">Log file is /root/.vnc/localhost.localdomain:1.log</span><br></pre></td></tr></table></figure>
+<p>3、启动服务</p>
+<p>启动一个窗口，如1号窗口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># vncserver :1</span><br></pre></td></tr></table></figure></p>
+<p>4、停止服务</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@iZ23zjkwlj8Z ~]# vncserver -kill :1</span><br><span class="line">Killing Xvnc process ID 1661</span><br></pre></td></tr></table></figure>
-<p>5����װGNOME����</p>
-<p>װ�����ǵ�������vncserver<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#yum groupinstall &quot;GNOME Desktop&quot; &quot;Graphical Administration Tools&quot;</span><br></pre></td></tr></table></figure></p>
+<p>5、安装GNOME桌面</p>
+<p>装完后记得重启下vncserver<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#yum groupinstall &quot;GNOME Desktop&quot; &quot;Graphical Administration Tools&quot;</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <ul>
-<li><strong>�ͻ��˰�װNCServer</strong> </li>
+<li><strong>客户端安装NCServer</strong> </li>
 </ul>
 </blockquote>
-<p>����Windows���õĿͻ���<a href="http://www.realvnc.com/�����ض�Ӧƽ̨��VNC-Viewer" target="_blank" rel="noopener">http://www.realvnc.com/�����ض�Ӧƽ̨��VNC-Viewer</a><br>����IP:���ںţ�ok��¼�ɹ�<br>����˵���޸� vi /root/.vnc/xstartup��������gnome���棬��û����������������<br>��װ��gnome������vncserver����ʹ���ˡ�</p>
+<p>我是Windows，用的客户端<a href="http://www.realvnc.com/，下载对应平台的VNC-Viewer" target="_blank" rel="noopener">http://www.realvnc.com/，下载对应平台的VNC-Viewer</a><br>输入IP:窗口号，ok登录成功<br>网上说的修改 vi /root/.vnc/xstartup才能启动gnome桌面，我没有遇到过这种情况<br>我装完gnome，重启vncserver即可使用了。</p>
 
       
     </div>
@@ -340,12 +340,12 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/12/27/项目部署（八）VNC Server安装/">��Ŀ���𣨰ˣ�������VNC Server��װ</a></p>
+        <p><span>本文标题:</span><a href="/2017/12/27/项目部署（八）VNC Server安装/">项目部署（八）虚拟机VNC Server安装</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Blog for Y</a></p>
         <p><span>发布时间:</span>2017-12-27, 00:00:00</p>
-        <p><span>最后更新:</span>2017-12-28, 21:26:47</p>
+        <p><span>最后更新:</span>2017-12-28, 21:29:31</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/12/27/项目部署（八）VNC Server安装/" title="��Ŀ���𣨰ˣ�������VNC Server��װ">https://github.com/hzxblogs/hzxblogs.github.io.git/2017/12/27/项目部署（八）VNC Server安装/</a>
+            <span>原始链接:</span><a class="post-url" href="/2017/12/27/项目部署（八）VNC Server安装/" title="项目部署（八）虚拟机VNC Server安装">https://github.com/hzxblogs/hzxblogs.github.io.git/2017/12/27/项目部署（八）VNC Server安装/</a>
             <span class="copy-path" data-clipboard-text="原文: https://github.com/hzxblogs/hzxblogs.github.io.git/2017/12/27/项目部署（八）VNC Server安装/　　作者: Blog for Y" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -359,15 +359,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/12/27/项目部署（三）Centos虚拟机与主机互ping问题/">
-                    项目部署（三）Centos虚拟机与主机互PING
+                <a href="/2017/12/27/项目部署（五）Centos虚拟机安装Weblogic/">
+                    项目部署（五）Centos虚拟机安装weblogic
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/12/27/项目部署（七）Oracle安装常见错误/">
-                    ��Ŀ�������ߣ�Centos��������װoracle����display at least 256colors
+                <a href="/2017/12/26/项目部署（二）JDK1.8安装/">
+                    项目部署（二）安装JDK
                 </a>
             </div>
         
@@ -415,7 +415,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"��Ŀ���𣨰ˣ�������VNC Server��װ　| 荷包蛋　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"项目部署（八）虚拟机VNC Server安装　| 荷包蛋　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -435,7 +435,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/12/27/项目部署（三）Centos虚拟机与主机互ping问题/" title="上一篇: 项目部署（三）Centos虚拟机与主机互PING">
+            <a href="/2017/12/27/项目部署（五）Centos虚拟机安装Weblogic/" title="上一篇: 项目部署（五）Centos虚拟机安装weblogic">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -443,13 +443,13 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/12/27/项目部署（七）Oracle安装常见错误/" title="下一篇: ��Ŀ�������ߣ�Centos��������װoracle����display at least 256colors">
+            <a href="/2017/12/26/项目部署（二）JDK1.8安装/" title="下一篇: 项目部署（二）安装JDK">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（三）Centos虚拟机与主机互ping问题/">项目部署（三）Centos虚拟机与主机互PING</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（八）VNC Server安装/">��Ŀ���𣨰ˣ�������VNC Server��װ</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（七）Oracle安装常见错误/">��Ŀ�������ߣ�Centos��������װoracle����display at least 256colors</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/SELinux介绍/">SELinux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（五）Centos虚拟机安装Weblogic/">项目部署（五）Centos虚拟机安装weblogic</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（六）虚拟机安装Oracle/">项目部署（六）Centos虚拟机安装oracle</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（四）Centos虚拟机防火墙的打开关闭/">项目部署（四）Centos虚拟机防火墙的打开关闭</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/项目部署（二）JDK1.8安装/">项目部署（二）安装JDK</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/Hexo+Github搭建自己的博客/">博客搭建教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/项目部署（一）虚拟机的安装/">项目部署（一） VMware14虚拟机安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/数据库序列/">数据库序列</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（三）Centos虚拟机与主机互ping问题/">项目部署（三）Centos虚拟机与主机互PING</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（四）Centos虚拟机防火墙的打开关闭/">项目部署（四）Centos虚拟机防火墙的打开关闭</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（六）虚拟机安装Oracle/">项目部署（六）Centos虚拟机安装oracle</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/SELinux介绍/">SELinux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（七）Oracle安装常见错误/">项目部署（七）Centos虚拟机安装oracle报错display at least 256colors</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（五）Centos虚拟机安装Weblogic/">项目部署（五）Centos虚拟机安装weblogic</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（八）VNC Server安装/">项目部署（八）虚拟机VNC Server安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/项目部署（二）JDK1.8安装/">项目部署（二）安装JDK</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/Hexo+Github搭建自己的博客/">博客搭建教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/数据库序列/">数据库序列</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/项目部署（一）虚拟机的安装/">项目部署（一） VMware14虚拟机安装</a></li></ul>
 
 
 

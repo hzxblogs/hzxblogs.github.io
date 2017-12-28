@@ -192,7 +192,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ѧϰ��¼/">ѧϰ��¼</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
                     </div>
                 </section>
                 
@@ -337,10 +337,10 @@
 
 
   
-    <article id="post-项目部署（八）VNC Server安装" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-项目部署（四）Centos虚拟机防火墙的打开关闭" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/12/27/项目部署（八）VNC Server安装/" class="article-date">
+      <a href="/2017/12/27/项目部署（四）Centos虚拟机防火墙的打开关闭/" class="article-date">
       <time datetime="2017-12-26T16:00:00.000Z" itemprop="datePublished">2017-12-27</time>
 </a>
 
@@ -356,7 +356,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/27/项目部署（八）VNC Server安装/">��Ŀ���𣨰ˣ�������VNC Server��װ</a>
+      <a class="article-title" href="/2017/12/27/项目部署（四）Centos虚拟机防火墙的打开关闭/">项目部署（四）Centos虚拟机防火墙的打开关闭</a>
     </h1>
   
 
@@ -366,227 +366,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>��Ҫʹ��Linux��Զ������������xmanager֮ǰ�ù����о�һ�㣬���γ�����VNC��</p>
-<blockquote>
-<ul>
-<li><strong>�����˰�װNCServer</strong> </li>
-</ul>
-</blockquote>
-<p>1����װVNCServer<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#yum -y install vnc *vnc-server*</span><br></pre></td></tr></table></figure></p>
-<p>2����������</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># vncserver</span><br><span class="line">You will require a password to access your desktops.</span><br><span class="line">Password: 123456            #����vnc ��������</span><br><span class="line">Verify: 123456                 #ȷ��vnc����</span><br><span class="line">xauth: creating new authority file /root/.Xauthority</span><br><span class="line">New ��localhost.localdomain:1 (root)�� desktop is localhost.localdomain:1</span><br><span class="line">Creating default startup script /root/.vnc/xstartup</span><br><span class="line">Starting applications specified in /root/.vnc/xstartup</span><br><span class="line">Log file is /root/.vnc/localhost.localdomain:1.log</span><br></pre></td></tr></table></figure>
-<p>3����������</p>
-<p>����һ�����ڣ���1�Ŵ���<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># vncserver :1</span><br></pre></td></tr></table></figure></p>
-<p>4��ֹͣ����</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@iZ23zjkwlj8Z ~]# vncserver -kill :1</span><br><span class="line">Killing Xvnc process ID 1661</span><br></pre></td></tr></table></figure>
-<p>5����װGNOME����</p>
-<p>װ�����ǵ�������vncserver<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#yum groupinstall &quot;GNOME Desktop&quot; &quot;Graphical Administration Tools&quot;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<ul>
-<li><strong>�ͻ��˰�װNCServer</strong> </li>
-</ul>
-</blockquote>
-<p>����Windows���õĿͻ���<a href="http://www.realvnc.com/�����ض�Ӧƽ̨��VNC-Viewer" target="_blank" rel="noopener">http://www.realvnc.com/�����ض�Ӧƽ̨��VNC-Viewer</a><br>����IP:���ںţ�ok��¼�ɹ�<br>����˵���޸� vi /root/.vnc/xstartup��������gnome���棬��û����������������<br>��װ��gnome������vncserver����ʹ���ˡ�</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/������/">������</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ѧϰ��¼/">ѧϰ��¼</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-项目部署（七）Oracle安装常见错误" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/12/27/项目部署（七）Oracle安装常见错误/" class="article-date">
-      <time datetime="2017-12-26T16:00:00.000Z" itemprop="datePublished">2017-12-27</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/27/项目部署（七）Oracle安装常见错误/">��Ŀ�������ߣ�Centos��������װoracle����display at least 256colors</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>�ڰ�װOracle��ʱ������./runInstaller ���ڲ�Ʒ������ʱ�򱨴���������������̸�۵ıȽ��٣��Ҹ���һ�����ϲŸ㶨�����ڷ��������ҡ�<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/������/">������</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ѧϰ��¼/">ѧϰ��¼</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2017/12/27/项目部署（七）Oracle安装常见错误/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-SELinux介绍" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/12/27/SELinux介绍/" class="article-date">
-      <time datetime="2017-12-26T16:00:00.000Z" itemprop="datePublished">2017-12-27</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/27/SELinux介绍/">SELinux介绍</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>几乎可以肯定每个人都听说过 SELinux (更准确的说，尝试关闭过)，甚至某些过往的经验让您对 SELinux 产生了偏见。<br>不过随着日益增长的 0-day 安全漏洞，或许现在是时候去了解下这个在 Linux 内核中已经有8年历史的强制性访问控制系统(MAC)了。<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Linux/">Linux</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2017/12/27/SELinux介绍/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-项目部署（五）Centos虚拟机安装Weblogic" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/12/27/项目部署（五）Centos虚拟机安装Weblogic/" class="article-date">
-      <time datetime="2017-12-26T16:00:00.000Z" itemprop="datePublished">2017-12-27</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/27/项目部署（五）Centos虚拟机安装Weblogic/">项目部署（五）Centos虚拟机安装weblogic</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>我们可以在CentOS 7.0中安装weblogic和数据库oracle等，用来本地部署项目，实验双机，热备，集群等等。下面我们介绍一下weblogic的安装。<br>
+              <p>CentOS 7.0默认使用的是firewall作为防火墙。只有关闭了防火墙，才能进行宿主机和虚拟机的互相访问。同理，宿主机也要关闭防火墙。下面我们介绍一下虚拟机防火墙的各种操作。<br>
           
       
     </div>
@@ -606,7 +386,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2017/12/27/项目部署（五）Centos虚拟机安装Weblogic/#more">more >></a>
+          <a href="/2017/12/27/项目部署（四）Centos虚拟机防火墙的打开关闭/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -693,10 +473,10 @@
 
 
   
-    <article id="post-项目部署（四）Centos虚拟机防火墙的打开关闭" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SELinux介绍" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/12/27/项目部署（四）Centos虚拟机防火墙的打开关闭/" class="article-date">
+      <a href="/2017/12/27/SELinux介绍/" class="article-date">
       <time datetime="2017-12-26T16:00:00.000Z" itemprop="datePublished">2017-12-27</time>
 </a>
 
@@ -712,7 +492,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/27/项目部署（四）Centos虚拟机防火墙的打开关闭/">项目部署（四）Centos虚拟机防火墙的打开关闭</a>
+      <a class="article-title" href="/2017/12/27/SELinux介绍/">SELinux介绍</a>
     </h1>
   
 
@@ -722,7 +502,75 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>CentOS 7.0默认使用的是firewall作为防火墙。只有关闭了防火墙，才能进行宿主机和虚拟机的互相访问。同理，宿主机也要关闭防火墙。下面我们介绍一下虚拟机防火墙的各种操作。<br>
+              <p>几乎可以肯定每个人都听说过 SELinux (更准确的说，尝试关闭过)，甚至某些过往的经验让您对 SELinux 产生了偏见。<br>不过随着日益增长的 0-day 安全漏洞，或许现在是时候去了解下这个在 Linux 内核中已经有8年历史的强制性访问控制系统(MAC)了。<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2017/12/27/SELinux介绍/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-项目部署（七）Oracle安装常见错误" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/12/27/项目部署（七）Oracle安装常见错误/" class="article-date">
+      <time datetime="2017-12-26T16:00:00.000Z" itemprop="datePublished">2017-12-27</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/27/项目部署（七）Oracle安装常见错误/">项目部署（七）Centos虚拟机安装oracle报错display at least 256colors</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>在安装Oracle的时候运行./runInstaller 会在产品检查的时候报错。这个错误网上谈论的比较少，我搞了一个晚上才搞定，现在分享给大家。<br>
           
       
     </div>
@@ -742,8 +590,160 @@
 
       
         <p class="article-more-link">
-          <a href="/2017/12/27/项目部署（四）Centos虚拟机防火墙的打开关闭/#more">more >></a>
+          <a href="/2017/12/27/项目部署（七）Oracle安装常见错误/#more">more >></a>
         </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-项目部署（五）Centos虚拟机安装Weblogic" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/12/27/项目部署（五）Centos虚拟机安装Weblogic/" class="article-date">
+      <time datetime="2017-12-26T16:00:00.000Z" itemprop="datePublished">2017-12-27</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/27/项目部署（五）Centos虚拟机安装Weblogic/">项目部署（五）Centos虚拟机安装weblogic</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>我们可以在CentOS 7.0中安装weblogic和数据库oracle等，用来本地部署项目，实验双机，热备，集群等等。下面我们介绍一下weblogic的安装。<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/虚拟机/">虚拟机</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2017/12/27/项目部署（五）Centos虚拟机安装Weblogic/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-项目部署（八）VNC Server安装" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/12/27/项目部署（八）VNC Server安装/" class="article-date">
+      <time datetime="2017-12-26T16:00:00.000Z" itemprop="datePublished">2017-12-27</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/27/项目部署（八）VNC Server安装/">项目部署（八）虚拟机VNC Server安装</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>需要使用Linux的远程桌面服务，xmanager之前用过，感觉一般，这次尝试下VNC。</p>
+<blockquote>
+<ul>
+<li><strong>服务端安装NCServer</strong> </li>
+</ul>
+</blockquote>
+<p>1、安装VNCServer<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#yum -y install vnc *vnc-server*</span><br></pre></td></tr></table></figure></p>
+<p>2、设置密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># vncserver</span><br><span class="line">You will require a password to access your desktops.</span><br><span class="line">Password: 123456            #输入vnc 连接密码</span><br><span class="line">Verify: 123456                 #确认vnc密码</span><br><span class="line">xauth: creating new authority file /root/.Xauthority</span><br><span class="line">New ‘localhost.localdomain:1 (root)’ desktop is localhost.localdomain:1</span><br><span class="line">Creating default startup script /root/.vnc/xstartup</span><br><span class="line">Starting applications specified in /root/.vnc/xstartup</span><br><span class="line">Log file is /root/.vnc/localhost.localdomain:1.log</span><br></pre></td></tr></table></figure>
+<p>3、启动服务</p>
+<p>启动一个窗口，如1号窗口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># vncserver :1</span><br></pre></td></tr></table></figure></p>
+<p>4、停止服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@iZ23zjkwlj8Z ~]# vncserver -kill :1</span><br><span class="line">Killing Xvnc process ID 1661</span><br></pre></td></tr></table></figure>
+<p>5、安装GNOME桌面</p>
+<p>装完后记得重启下vncserver<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#yum groupinstall &quot;GNOME Desktop&quot; &quot;Graphical Administration Tools&quot;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<ul>
+<li><strong>客户端安装NCServer</strong> </li>
+</ul>
+</blockquote>
+<p>我是Windows，用的客户端<a href="http://www.realvnc.com/，下载对应平台的VNC-Viewer" target="_blank" rel="noopener">http://www.realvnc.com/，下载对应平台的VNC-Viewer</a><br>输入IP:窗口号，ok登录成功<br>网上说的修改 vi /root/.vnc/xstartup才能启动gnome桌面，我没有遇到过这种情况<br>我装完gnome，重启vncserver即可使用了。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/虚拟机/">虚拟机</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
+    </div>
+
       
       <div class="clearfix"></div>
     </div>
@@ -897,10 +897,10 @@
 
 
   
-    <article id="post-项目部署（一）虚拟机的安装" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-数据库序列" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/12/26/项目部署（一）虚拟机的安装/" class="article-date">
+      <a href="/2017/12/26/数据库序列/" class="article-date">
       <time datetime="2017-12-25T16:00:00.000Z" itemprop="datePublished">2017-12-26</time>
 </a>
 
@@ -916,7 +916,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/26/项目部署（一）虚拟机的安装/">项目部署（一） VMware14虚拟机安装</a>
+      <a class="article-title" href="/2017/12/26/数据库序列/">数据库序列</a>
     </h1>
   
 
@@ -926,7 +926,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>因为本人是Windows系统爱好者，mac系统就不进行讲解了，请大家参照别的博客，谢谢。<br>
+              <p>数据库序列</p>
+<p>在ORACLE数据库中，什么是序列呢？它的用途是什么？序列其实是序列号生成器，可以为表中的行自动生成序列号，产生一组等间隔的数值。（类型为数字），其主要的用途是生成表的主键值，可以在插入语句中引用，也可以通过查询检查当前值，或使序列增加至下一个值。<br>
           
       
     </div>
@@ -935,7 +936,7 @@
       
       
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/虚拟机/">虚拟机</a>
+    <a class="article-category-link" href="/categories/数据库/">数据库</a>
     </div>
 
 
@@ -946,7 +947,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2017/12/26/项目部署（一）虚拟机的安装/#more">more >></a>
+          <a href="/2017/12/26/数据库序列/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
