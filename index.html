@@ -147,13 +147,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
+                        <li>菜单</li>
+                        <li>标签</li>
                         
-                        <li>Friends</li>
+                        <li>友情链接</li>
                         
                         
-                        <li>About Me</li>
+                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -192,7 +192,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ѧϰ��¼/">ѧϰ��¼</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
                     </div>
                 </section>
                 
@@ -265,7 +265,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
   
@@ -319,6 +319,158 @@
       
         <p class="article-more-link">
           <a href="/2017/12/27/项目部署（三）Centos虚拟机与主机互ping问题/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-项目部署（八）VNC Server安装" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/12/27/项目部署（八）VNC Server安装/" class="article-date">
+      <time datetime="2017-12-26T16:00:00.000Z" itemprop="datePublished">2017-12-27</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/27/项目部署（八）VNC Server安装/">��Ŀ���𣨰ˣ�������VNC Server��װ</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>��Ҫʹ��Linux��Զ������������xmanager֮ǰ�ù����о�һ�㣬���γ�����VNC��</p>
+<blockquote>
+<ul>
+<li><strong>�����˰�װNCServer</strong> </li>
+</ul>
+</blockquote>
+<p>1����װVNCServer<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#yum -y install vnc *vnc-server*</span><br></pre></td></tr></table></figure></p>
+<p>2����������</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># vncserver</span><br><span class="line">You will require a password to access your desktops.</span><br><span class="line">Password: 123456            #����vnc ��������</span><br><span class="line">Verify: 123456                 #ȷ��vnc����</span><br><span class="line">xauth: creating new authority file /root/.Xauthority</span><br><span class="line">New ��localhost.localdomain:1 (root)�� desktop is localhost.localdomain:1</span><br><span class="line">Creating default startup script /root/.vnc/xstartup</span><br><span class="line">Starting applications specified in /root/.vnc/xstartup</span><br><span class="line">Log file is /root/.vnc/localhost.localdomain:1.log</span><br></pre></td></tr></table></figure>
+<p>3����������</p>
+<p>����һ�����ڣ���1�Ŵ���<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># vncserver :1</span><br></pre></td></tr></table></figure></p>
+<p>4��ֹͣ����</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@iZ23zjkwlj8Z ~]# vncserver -kill :1</span><br><span class="line">Killing Xvnc process ID 1661</span><br></pre></td></tr></table></figure>
+<p>5����װGNOME����</p>
+<p>װ�����ǵ�������vncserver<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#yum groupinstall &quot;GNOME Desktop&quot; &quot;Graphical Administration Tools&quot;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<ul>
+<li><strong>�ͻ��˰�װNCServer</strong> </li>
+</ul>
+</blockquote>
+<p>����Windows���õĿͻ���<a href="http://www.realvnc.com/�����ض�Ӧƽ̨��VNC-Viewer" target="_blank" rel="noopener">http://www.realvnc.com/�����ض�Ӧƽ̨��VNC-Viewer</a><br>����IP:���ںţ�ok��¼�ɹ�<br>����˵���޸� vi /root/.vnc/xstartup��������gnome���棬��û����������������<br>��װ��gnome������vncserver����ʹ���ˡ�</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/������/">������</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ѧϰ��¼/">ѧϰ��¼</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-项目部署（七）Oracle安装常见错误" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/12/27/项目部署（七）Oracle安装常见错误/" class="article-date">
+      <time datetime="2017-12-26T16:00:00.000Z" itemprop="datePublished">2017-12-27</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/27/项目部署（七）Oracle安装常见错误/">��Ŀ�������ߣ�Centos��������װoracle����display at least 256colors</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>�ڰ�װOracle��ʱ������./runInstaller ���ڲ�Ʒ������ʱ�򱨴���������������̸�۵ıȽ��٣��Ҹ���һ�����ϲŸ㶨�����ڷ��������ҡ�<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/������/">������</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ѧϰ��¼/">ѧϰ��¼</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2017/12/27/项目部署（七）Oracle安装常见错误/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -473,74 +625,6 @@
 
 
   
-    <article id="post-项目部署（四）Centos虚拟机防火墙的打开关闭" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/12/27/项目部署（四）Centos虚拟机防火墙的打开关闭/" class="article-date">
-      <time datetime="2017-12-26T16:00:00.000Z" itemprop="datePublished">2017-12-27</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/27/项目部署（四）Centos虚拟机防火墙的打开关闭/">项目部署（四）Centos虚拟机防火墙的打开关闭</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>CentOS 7.0默认使用的是firewall作为防火墙。只有关闭了防火墙，才能进行宿主机和虚拟机的互相访问。同理，宿主机也要关闭防火墙。下面我们介绍一下虚拟机防火墙的各种操作。<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/虚拟机/">虚拟机</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2017/12/27/项目部署（四）Centos虚拟机防火墙的打开关闭/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-项目部署（六）虚拟机安装Oracle" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -591,6 +675,74 @@
       
         <p class="article-more-link">
           <a href="/2017/12/27/项目部署（六）虚拟机安装Oracle/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-项目部署（四）Centos虚拟机防火墙的打开关闭" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/12/27/项目部署（四）Centos虚拟机防火墙的打开关闭/" class="article-date">
+      <time datetime="2017-12-26T16:00:00.000Z" itemprop="datePublished">2017-12-27</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/27/项目部署（四）Centos虚拟机防火墙的打开关闭/">项目部署（四）Centos虚拟机防火墙的打开关闭</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>CentOS 7.0默认使用的是firewall作为防火墙。只有关闭了防火墙，才能进行宿主机和虚拟机的互相访问。同理，宿主机也要关闭防火墙。下面我们介绍一下虚拟机防火墙的各种操作。<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/虚拟机/">虚拟机</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2017/12/27/项目部署（四）Centos虚拟机防火墙的打开关闭/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -745,75 +897,6 @@
 
 
   
-    <article id="post-数据库序列" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/12/26/数据库序列/" class="article-date">
-      <time datetime="2017-12-25T16:00:00.000Z" itemprop="datePublished">2017-12-26</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/26/数据库序列/">数据库序列</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>数据库序列</p>
-<p>在ORACLE数据库中，什么是序列呢？它的用途是什么？序列其实是序列号生成器，可以为表中的行自动生成序列号，产生一组等间隔的数值。（类型为数字），其主要的用途是生成表的主键值，可以在插入语句中引用，也可以通过查询检查当前值，或使序列增加至下一个值。<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/数据库/">数据库</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2017/12/26/数据库序列/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-项目部署（一）虚拟机的安装" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -883,6 +966,10 @@
 
   
   
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
+  
 </div>
       <footer id="footer">
     <div class="outer">
@@ -892,14 +979,14 @@
                 2016-2017 Blog for Y
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -908,7 +995,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -941,9 +1028,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
