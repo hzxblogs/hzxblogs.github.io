@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="荷包蛋">
 <meta property="og:description" content="Oracle 在Linux和window上的安装不太一样，oracle 默认不支持CentOS系统安装，所以安装的时候，需要修改部分属性，先参考同行博客和自己安装实践，做个总结。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-28T13:28:07.694Z">
+<meta property="og:updated_time" content="2017-12-28T13:31:37.752Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="项目部署（六）Centos虚拟机安装oracle">
 <meta name="twitter:description" content="Oracle 在Linux和window上的安装不太一样，oracle 默认不支持CentOS系统安装，所以安装的时候，需要修改部分属性，先参考同行博客和自己安装实践，做个总结。">
@@ -411,7 +411,7 @@
 <hr>
 <p>1、oracle用户登录系统，使用命令行跳转到data/database/database目录下，输入./runInstaller 调出安装页面；<br>2、调出安装页面，点击下一步进行安装，我选择仅数据库服务安装。</p>
 <hr>
-<p>像window安装Oracle安装一样，此处不再重复介绍。对于没有安装centos可视化的朋友，可能会报错。具体请查看我的另外两个博客。</p>
+<p>像window安装Oracle安装一样，此处不再重复介绍。对于没有安装centos可视化的朋友，可能会报错。具体请查看我的另外两个博客。<br><a href="https://hzxblogs.github.io/2017/12/27/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%EF%BC%88%E4%B8%83%EF%BC%89Oracle%E5%AE%89%E8%A3%85%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF/" target="_blank" rel="noopener">https://hzxblogs.github.io/2017/12/27/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%EF%BC%88%E4%B8%83%EF%BC%89Oracle%E5%AE%89%E8%A3%85%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF/</a><br><a href="https://hzxblogs.github.io/2017/12/27/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%EF%BC%88%E5%85%AB%EF%BC%89VNC%20Server%E5%AE%89%E8%A3%85/" target="_blank" rel="noopener">https://hzxblogs.github.io/2017/12/27/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%EF%BC%88%E5%85%AB%EF%BC%89VNC%20Server%E5%AE%89%E8%A3%85/</a></p>
 <p>安装完成之后，通过netca打开监听配置页面，通过执行dbca命令，启动oracle实例安装界面,一个Oracle服务可以对应多个实例，一个Oracle数据库对应多个表空间和用户名，每个用户名又可管理表空间。<br>安装完成实例之后，使用sqlPlus命令链接数据库的时候，提 示 could not open parameter file “/data /Oracle/product/11.2/db_1/dbs/initorcl.ora”，这个时候需要将刚刚安装的Oracle实例配置文件 （$ORACLE_BASE/admin /数据库名称/pfile目录下的init.ora.012009233838形式的文件）拷贝到/data/Oracle/product/11.2 /db_1/dbs目录下<br>[oracle@localhost pfile]$ pwd<br>/data/oracle/admin/MLUCDB/pfile<br>[oracle@localhost pfile]$ cp init.ora.962016224738 /data/Oracle/product/11.2/db_1/dbs/initorcl.ora</p>
 <p>#使用sqlplus命令登录Oracle，重启服务器<br>sqlplus  /nolog<br>conn / as sysdba;</p>
 <p>#再输入startup，回车.这步是启动oracle服务。<br>startup<br>重启服务器之后，打开Oracle，提示 ORA-01034: ORACLE not available ORA-27101<br>原因在于未启动服务，操作的方式是：<br>　　1、启动oracle监听：cmd命令行窗口下，输入lsnrctl start，回车即启动监听；<br>　　2、采用sqlplus /nolog 登录Oracle服务，连接服务conn /as sysdba，然后startup启动服务</p>
@@ -428,7 +428,7 @@
         <p><span>本文标题:</span><a href="/2017/12/27/项目部署（六）虚拟机安装Oracle/">项目部署（六）Centos虚拟机安装oracle</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Blog for Y</a></p>
         <p><span>发布时间:</span>2017-12-27, 00:00:00</p>
-        <p><span>最后更新:</span>2017-12-28, 21:28:07</p>
+        <p><span>最后更新:</span>2017-12-28, 21:31:37</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/12/27/项目部署（六）虚拟机安装Oracle/" title="项目部署（六）Centos虚拟机安装oracle">https://github.com/hzxblogs/hzxblogs.github.io.git/2017/12/27/项目部署（六）虚拟机安装Oracle/</a>
             <span class="copy-path" data-clipboard-text="原文: https://github.com/hzxblogs/hzxblogs.github.io.git/2017/12/27/项目部署（六）虚拟机安装Oracle/　　作者: Blog for Y" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -451,8 +451,8 @@
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/12/27/SELinux介绍/">
-                    SELinux介绍
+                <a href="/2017/12/27/项目部署（七）Oracle安装常见错误/">
+                    项目部署（七）Centos虚拟机安装oracle报错display at least 256colors
                 </a>
             </div>
         
@@ -528,13 +528,13 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/12/27/SELinux介绍/" title="下一篇: SELinux介绍">
+            <a href="/2017/12/27/项目部署（七）Oracle安装常见错误/" title="下一篇: 项目部署（七）Centos虚拟机安装oracle报错display at least 256colors">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（三）Centos虚拟机与主机互ping问题/">项目部署（三）Centos虚拟机与主机互PING</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（四）Centos虚拟机防火墙的打开关闭/">项目部署（四）Centos虚拟机防火墙的打开关闭</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（六）虚拟机安装Oracle/">项目部署（六）Centos虚拟机安装oracle</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/SELinux介绍/">SELinux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（七）Oracle安装常见错误/">项目部署（七）Centos虚拟机安装oracle报错display at least 256colors</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（五）Centos虚拟机安装Weblogic/">项目部署（五）Centos虚拟机安装weblogic</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（八）VNC Server安装/">项目部署（八）虚拟机VNC Server安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/项目部署（二）JDK1.8安装/">项目部署（二）安装JDK</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/Hexo+Github搭建自己的博客/">博客搭建教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/数据库序列/">数据库序列</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/项目部署（一）虚拟机的安装/">项目部署（一） VMware14虚拟机安装</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（三）Centos虚拟机与主机互ping问题/">项目部署（三）Centos虚拟机与主机互PING</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（四）Centos虚拟机防火墙的打开关闭/">项目部署（四）Centos虚拟机防火墙的打开关闭</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（六）虚拟机安装Oracle/">项目部署（六）Centos虚拟机安装oracle</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（七）Oracle安装常见错误/">项目部署（七）Centos虚拟机安装oracle报错display at least 256colors</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（八）VNC Server安装/">项目部署（八）虚拟机VNC Server安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/SELinux介绍/">SELinux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（五）Centos虚拟机安装Weblogic/">项目部署（五）Centos虚拟机安装weblogic</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/项目部署（二）JDK1.8安装/">项目部署（二）安装JDK</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/Hexo+Github搭建自己的博客/">博客搭建教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/项目部署（一）虚拟机的安装/">项目部署（一） VMware14虚拟机安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/数据库序列/">数据库序列</a></li></ul>
 
 
 
