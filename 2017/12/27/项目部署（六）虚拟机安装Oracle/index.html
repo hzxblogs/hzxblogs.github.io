@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="2017年4月份进行了博客的部署，因为今天想着好久没有发布文章了，进行部署后，发现博客样式变了，索性就重新部署了一下">
+<meta name="description" content="Oracle 在Linux和window上的安装不太一样，oracle 默认不支持CentOS系统安装，所以安装的时候，需要修改部分属性，先参考同行博客和自己安装实践，做个总结。">
 <meta name="keywords" content="学习记录">
 <meta property="og:type" content="article">
-<meta property="og:title" content="博客搭建教程">
-<meta property="og:url" content="https://github.com/hzxblogs/hzxblogs.github.io.git/2017/12/26/Hexo+Github搭建自己的博客/index.html">
+<meta property="og:title" content="项目部署（六）Centos虚拟机安装oracle">
+<meta property="og:url" content="https://github.com/hzxblogs/hzxblogs.github.io.git/2017/12/27/项目部署（六）虚拟机安装Oracle/index.html">
 <meta property="og:site_name" content="荷包蛋">
-<meta property="og:description" content="2017年4月份进行了博客的部署，因为今天想着好久没有发布文章了，进行部署后，发现博客样式变了，索性就重新部署了一下">
+<meta property="og:description" content="Oracle 在Linux和window上的安装不太一样，oracle 默认不支持CentOS系统安装，所以安装的时候，需要修改部分属性，先参考同行博客和自己安装实践，做个总结。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-26T12:38:20.126Z">
+<meta property="og:updated_time" content="2017-12-28T12:44:52.929Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客搭建教程">
-<meta name="twitter:description" content="2017年4月份进行了博客的部署，因为今天想着好久没有发布文章了，进行部署后，发现博客样式变了，索性就重新部署了一下">
+<meta name="twitter:title" content="项目部署（六）Centos虚拟机安装oracle">
+<meta name="twitter:description" content="Oracle 在Linux和window上的安装不太一样，oracle 默认不支持CentOS系统安装，所以安装的时候，需要修改部分属性，先参考同行博客和自己安装实践，做个总结。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>博客搭建教程 | 荷包蛋</title>
+<title>项目部署（六）Centos虚拟机安装oracle | 荷包蛋</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -267,11 +267,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Hexo+Github搭建自己的博客" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-项目部署（六）虚拟机安装Oracle" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/12/26/Hexo+Github搭建自己的博客/" class="article-date">
-      <time datetime="2017-12-26T09:28:55.243Z" itemprop="datePublished">2017-12-26</time>
+      <a href="/2017/12/27/项目部署（六）虚拟机安装Oracle/" class="article-date">
+      <time datetime="2017-12-26T16:00:00.000Z" itemprop="datePublished">2017-12-27</time>
 </a>
 
 
@@ -286,7 +286,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      博客搭建教程
+      项目部署（六）Centos虚拟机安装oracle
     </h1>
   
 
@@ -295,7 +295,7 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Blogs/">Blogs</a>
+    <a class="article-category-link" href="/categories/虚拟机/">虚拟机</a>
     </div>
 
 
@@ -311,48 +311,110 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>2017年4月份进行了博客的部署，因为今天想着好久没有发布文章了，进行部署后，发现博客样式变了，索性就重新部署了一下<br><a id="more"></a></p>
+        <p>Oracle 在Linux和window上的安装不太一样，oracle 默认不支持CentOS系统安装，所以安装的时候，需要修改部分属性，先参考同行博客和自己安装实践，做个总结。<br><a id="more"></a></p>
 <blockquote>
 <ul>
-<li><strong>安装Git</strong> </li>
+<li><strong>安装JDK</strong> </li>
 </ul>
 </blockquote>
 <hr>
-<p> 1、下载地址   <a href="https://git-for-windows.github.io/" target="_blank" rel="noopener">https://git-for-windows.github.io/</a>  （版本不限）<br> 2、安装选择<br>    一路下一步，直到选择页面如图所示![Git安装选择][1]<br> 3、测试是否安装完毕<br>    在电脑桌面右键包含git bash here。</p>
+<p><a href="https://hzxblogs.github.io/2017/12/26/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%EF%BC%88%E4%BA%8C%EF%BC%89JDK1.8%E5%AE%89%E8%A3%85/" target="_blank" rel="noopener">https://hzxblogs.github.io/2017/12/26/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%EF%BC%88%E4%BA%8C%EF%BC%89JDK1.8%E5%AE%89%E8%A3%85/</a></p>
 <hr>
 <blockquote>
 <ul>
-<li><strong>安装node.js</strong></li>
+<li><strong>下载Oracle安装包</strong> </li>
 </ul>
 </blockquote>
 <hr>
-<p>1、下载地址：<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a><br>2、安装一路下一波即可，路径没有要求（目录尽量中文）</p>
+<p>linux.x64_11gR2_database_1of2.zip 和 linux.x64_11gR2_database_2of2.zip ，可以下载到本地，通过ftp服务上传到Linux系统。</p>
+<hr>
+<p>用Root账号登录，运行下面指令。</p>
+<blockquote>
+<ul>
+<li><strong>创建运行oracle数据库的系统用户和用户组</strong> </li>
+</ul>
+</blockquote>
+<hr>
+<p>创建所需要用户和用户组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">groupadd oinstall　　　　　　　　　　　　　#创建用户组oinstall</span><br><span class="line">groupadd dba　　      　　　　　　　　　　 #创建用户组dba</span><br><span class="line">useradd -g oinstall -g dba -m oracle　　   #创建oracle用户，并加入到oinstall和dba用户组</span><br><span class="line">groups oracle  　　　　　　　　　　　　　　#查询用户组是否授权成功</span><br><span class="line">passwd oracle　　     　　　　　　　　　　 #设置用户oracle的登陆密码，不设置密码，在CentOS的图形登陆界面没法登陆</span><br><span class="line">id oracle                   　　　　　　   #查看新建的oracle用户</span><br></pre></td></tr></table></figure></p>
 <hr>
 <blockquote>
 <ul>
-<li><strong>安装hexo并初始化</strong></li>
+<li><strong>创建oracle数据库安装目录（运行下面指令，创建账号和分配权限）</strong> </li>
 </ul>
 </blockquote>
 <hr>
-<p>1、利用 npm 命令即可安装。在任意位置点击鼠标右键，选择Git Bash<br>2、输入命令：npm install -g hexo<br>3、在E盘创建hexo文件夹（e:/hexo） 路径-目录名自己随意。<br>4、在hexo文件夹下，右键运行Git Bash，输入命令：hexo init<br>5、初始化完成，可以选择配置_config.yml文件。具体配置可查百度。<br>6、在hexo文件夹下，右键运行Git Bash，执行 hexo g和hexo s，使用控制台给出的地址访问自己的博客。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /data/oracle　　#oracle数据库安装目录</span><br><span class="line">mkdir -p /data/oraInventory　　#oracle数据库配置文件目录</span><br><span class="line">mkdir -p /data/database　　#oracle数据库软件包解压目录</span><br><span class="line">cd /data</span><br><span class="line">ls　　#创建完毕检查一下</span><br><span class="line">chown -R oracle:oinstall /data/oracle　　#设置目录所有者为oinstall用户组的oracle用户</span><br><span class="line">chown -R oracle:oinstall /data/oraInventory</span><br><span class="line">chown -R oracle:oinstall /data/database</span><br></pre></td></tr></table></figure>
 <hr>
 <blockquote>
 <ul>
-<li><strong>github的部署</strong></li>
+<li><strong>修改OS系统标识</strong> </li>
 </ul>
 </blockquote>
 <hr>
-<p>1.申请github的账号 <a href="https://github.com/">https://github.com/</a><br>2.建立仓库，注意仓库名要与你的GitHub一致，如我的GitHub名是Melody-Fair，那么我的仓库名就是Melody-Fair.github.io。<br>3.在仓库的settings里设置github Pages。</p>
-<p>配置完成。</p>
+<p>oracle默认不支持CentOS系统安装， 修改文件 /etc/RedHat-release 内容为RedHat-7</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/redhat-release#修改成红色部分文字</span><br><span class="line">redhat-7</span><br></pre></td></tr></table></figure>
 <hr>
 <blockquote>
 <ul>
-<li><strong>部署hexo</strong></li>
+<li><strong>安装oracle数据库所需要的软件包</strong> </li>
 </ul>
 </blockquote>
 <hr>
-<p>1.在hexo的文件夹下的_config.yml文件下配置：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:Melody-Fair/Melody-Fair.git </span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
-<p>2、hexo g   生成部署文件<br>3、hexo d   进行相关部署<br>部署完成就能通过你的github进行访问了</p>
+<p>以下是按照需要依赖的安装包，通过 yum install {包名} 来验证是否安装，例如yum install binutils<br>binutils-2.23.52.0.1-12.el7.x86_64<br>compat-libcap1-1.10-3.el7.x86_64<br>gcc-4.8.2-3.el7.x86_64<br>gcc-c++-4.8.2-3.el7.x86_64<br>glibc-2.17-36.el7.i686<br>glibc-2.17-36.el7.x86_64<br>glibc-devel-2.17-36.el7.i686<br>glibc-devel-2.17-36.el7.x86_64<br>ksh<br>libaio-0.3.109-9.el7.i686<br>libaio-0.3.109-9.el7.x86_64<br>libaio-devel-0.3.109-9.el7.i686<br>libaio-devel-0.3.109-9.el7.x86_64<br>libgcc-4.8.2-3.el7.i686<br>libgcc-4.8.2-3.el7.x86_64<br>libstdc++-4.8.2-3.el7.i686<br>libstdc++-4.8.2-3.el7.x86_64<br>libstdc++-devel-4.8.2-3.el7.i686<br>libstdc++-devel-4.8.2-3.el7.x86_64<br>libXi-1.7.2-1.el7.i686<br>libXi-1.7.2-1.el7.x86_64<br>libXtst-1.2.2-1.el7.i686<br>libXtst-1.2.2-1.el7.x86_64<br>make-3.82-19.el7.x86_64<br>sysstat-10.1.5-1.el7.x86_64<br>使用下面指令，检查依赖软件包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install binutils-2.* compat-libstdc++-33* elfutils-libelf-0.* elfutils-libelf-devel-* gcc-4.* gcc-c++-4.* glibc-2.* glibc-common-2.* glibc-devel-2.* glibc-headers-2.* ksh-2* libaio-0.* libaio-devel-0.* libgcc-4.* libstdc++-4.* libstdc++-devel-4.* make-3.* sysstat-7.* unixODBC-2.* unixODBC-devel-2.* pdksh*</span><br></pre></td></tr></table></figure></p>
+<hr>
+<blockquote>
+<ul>
+<li><strong>关闭防火墙和selinux</strong> </li>
+</ul>
+</blockquote>
+<hr>
+<p>查看我的博客<br>关闭防火墙：<br><a href="https://hzxblogs.github.io/2017/12/27/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%EF%BC%88%E5%9B%9B%EF%BC%89Centos%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E6%89%93%E5%BC%80%E5%85%B3%E9%97%AD/" target="_blank" rel="noopener">https://hzxblogs.github.io/2017/12/27/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%EF%BC%88%E5%9B%9B%EF%BC%89Centos%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E6%89%93%E5%BC%80%E5%85%B3%E9%97%AD/</a><br>关闭SElinux：</p>
+<hr>
+<blockquote>
+<ul>
+<li><strong>修改内核参数</strong> </li>
+</ul>
+</blockquote>
+<hr>
+<p>vi /etc/sysctl.conf #红色部分是要添加sysctl.conf内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.icmp_echo_ignore_broadcasts = 1</span><br><span class="line">net.ipv4.conf.all.rp_filter = 1</span><br><span class="line">fs.file-max = 6815744 #设置最大打开文件数</span><br><span class="line">fs.aio-max-nr = 1048576</span><br><span class="line">kernel.shmall = 2097152 #共享内存的总量，8G内存设置：2097152*4k/1024/1024</span><br><span class="line">kernel.shmmax = 2147483648 #最大共享内存的段大小</span><br><span class="line">kernel.shmmni = 4096 #整个系统共享内存端的最大数</span><br><span class="line">kernel.sem = 250 32000 100 128</span><br><span class="line">net.ipv4.ip_local_port_range = 9000 65500 #可使用的IPv4端口范围</span><br><span class="line">net.core.rmem_default = 262144</span><br><span class="line">net.core.rmem_max= 4194304</span><br><span class="line">net.core.wmem_default= 262144</span><br><span class="line">net.core.wmem_max= 1048576</span><br></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<ul>
+<li><strong>对oracle用户设置限制，提高软件运行性能</strong></li>
+</ul>
+</blockquote>
+<hr>
+<p>vi /etc/security/limits.conf  #红色部分要添加到Limits.conf内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">oracle soft nproc 2047</span><br><span class="line">oracle hard nproc 16384</span><br><span class="line">oracle soft nofile 1024</span><br><span class="line">oracle hard nofile 65536</span><br></pre></td></tr></table></figure></p>
+<hr>
+<blockquote>
+<ul>
+<li><strong>配置用户的环境变量</strong></li>
+</ul>
+</blockquote>
+<hr>
+<p>vi /home/oracle/.bash_profile  #红色部分是要追加bash_profile内容部分<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">export ORACLE_BASE=/data/oracle #oracle数据库安装目录</span><br><span class="line">export ORACLE_HOME=$ORACLE_BASE/product/11.2.0/db_1 #oracle数据库路径</span><br><span class="line">export ORACLE_SID=orcl #oracle启动数据库实例名</span><br><span class="line">export ORACLE_TERM=xterm #xterm窗口模式安装</span><br><span class="line">export PATH=$ORACLE_HOME/bin:/usr/sbin:$PATH #添加系统环境变量</span><br><span class="line">export LD_LIBRARY_PATH=$ORACLE_HOME/lib:/lib:/usr/lib #添加系统环境变量</span><br><span class="line">export LANG=C #防止安装过程出现乱码</span><br><span class="line">export NLS_LANG=AMERICAN_AMERICA.ZHS16GBK  #设置Oracle客户端字符集，必须与Oracle安装时设置的字符集保持一致</span><br></pre></td></tr></table></figure></p>
+<p>配置完成，:wq!保存退出，运行source /home/oracle/.bash_profile时上述配置生效</p>
+<hr>
+<blockquote>
+<ul>
+<li><strong>获取安装包文件后解压安装包</strong></li>
+</ul>
+</blockquote>
+<hr>
+<p>获取安装包文件的方式，可通过ftp服务器，也可通过wget下载到指定目录，解压方式如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unzip linux.x64_11gR2_database_1of2.zip -d /data/database/  #解压文件1</span><br><span class="line">unzip linux.x64_11gR2_database_2of2.zip -d /data/database/  #解压文件2</span><br><span class="line">chown -R oracle:oinstall /data/database/database/　　　　　　 #分配安装文件授权Oracle</span><br></pre></td></tr></table></figure></p>
+<hr>
+<blockquote>
+<ul>
+<li><strong>Oracle安装</strong></li>
+</ul>
+</blockquote>
+<hr>
+<p>1、oracle用户登录系统，使用命令行跳转到data/database/database目录下，输入./runInstaller 调出安装页面；</p>
+<h2 id="2、调出安装页面，点击下一步进行安装，我选择仅数据库服务安装。"><a href="#2、调出安装页面，点击下一步进行安装，我选择仅数据库服务安装。" class="headerlink" title="2、调出安装页面，点击下一步进行安装，我选择仅数据库服务安装。"></a>2、调出安装页面，点击下一步进行安装，我选择仅数据库服务安装。</h2><p>像window安装Oracle安装一样，此处不再重复介绍。<br>对于没有安装centos可视化的朋友，可能会报错，</p>
+<p>　　安装完成之后，通过netca打开监听配置页面，通过执行dbca命令，启动oracle实例安装界面,一个Oracle服务可以对应多个实例，一个Oracle数据库对应多个表空间和用户名，每个用户名又可管理表空间。<br>　　安装完成实例之后，使用sqlPlus命令链接数据库的时候，提 示 could not open parameter file “/data /Oracle/product/11.2/db_1/dbs/initorcl.ora”，这个时候需要将刚刚安装的Oracle实例配置文件 （$ORACLE_BASE/admin /数据库名称/pfile目录下的init.ora.012009233838形式的文件）拷贝到/data/Oracle/product/11.2 /db_1/dbs目录下<br>[oracle@localhost pfile]$ pwd<br>/data/oracle/admin/MLUCDB/pfile<br>[oracle@localhost pfile]$ cp init.ora.962016224738 /data/Oracle/product/11.2/db_1/dbs/initorcl.ora</p>
+<p>#使用sqlplus命令登录Oracle，重启服务器<br>sqlplus  /nolog<br>conn / as sysdba;</p>
+<p>#再输入startup，回车.这步是启动oracle服务。<br>startup<br> 　  重启服务器之后，打开Oracle，提示 ORA-01034: ORACLE not available ORA-27101<br>　　原因在于未启动服务，操作的方式是：<br>　　1、启动oracle监听：cmd命令行窗口下，输入lsnrctl start，回车即启动监听；<br>　　2、采用sqlplus /nolog 登录Oracle服务，连接服务conn /as sysdba，然后startup启动服务<br>扩展RedHat下Oracle的安装<br>　　1、RedHat系统版本尽量使用Desk版本，便于Oracle的界面安装，Oracle安装文件传输到RedHat服务器，可以通过SecureCrt远程客户端完成数据的传输。<br>　　2、记得配置用户换机下的安装编码，否则oracle安装会出现乱码：<br>vi /home/oracle/.bash_profile  #追加配置文件<br>export LANG=C #防止安装过程出现乱码<br>export NLS_LANG=AMERICAN_AMERICA.ZHS16GBK  #设置Oracle客户端字符集，必须与Oracle安装时设置的字符集保持一致。</p>
 
       
     </div>
@@ -361,13 +423,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/12/26/Hexo+Github搭建自己的博客/">博客搭建教程</a></p>
+        <p><span>本文标题:</span><a href="/2017/12/27/项目部署（六）虚拟机安装Oracle/">项目部署（六）Centos虚拟机安装oracle</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Blog for Y</a></p>
-        <p><span>发布时间:</span>2017-12-26, 17:28:55</p>
-        <p><span>最后更新:</span>2017-12-26, 20:38:20</p>
+        <p><span>发布时间:</span>2017-12-27, 00:00:00</p>
+        <p><span>最后更新:</span>2017-12-28, 20:44:52</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/12/26/Hexo+Github搭建自己的博客/" title="博客搭建教程">https://github.com/hzxblogs/hzxblogs.github.io.git/2017/12/26/Hexo+Github搭建自己的博客/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://github.com/hzxblogs/hzxblogs.github.io.git/2017/12/26/Hexo+Github搭建自己的博客/　　作者: Blog for Y" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/12/27/项目部署（六）虚拟机安装Oracle/" title="项目部署（六）Centos虚拟机安装oracle">https://github.com/hzxblogs/hzxblogs.github.io.git/2017/12/27/项目部署（六）虚拟机安装Oracle/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://github.com/hzxblogs/hzxblogs.github.io.git/2017/12/27/项目部署（六）虚拟机安装Oracle/　　作者: Blog for Y" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -380,15 +442,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/12/26/项目部署（二）JDK1.8安装/">
-                    项目部署（二）安装JDK
+                <a href="/2017/12/27/项目部署（五）Centos虚拟机安装Weblogic/">
+                    项目部署（五）Centos虚拟机安装weblogic
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/12/26/数据库序列/">
-                    数据库序列
+                <a href="/2017/12/26/项目部署（二）JDK1.8安装/">
+                    项目部署（二）安装JDK
                 </a>
             </div>
         
@@ -400,7 +462,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2、调出安装页面，点击下一步进行安装，我选择仅数据库服务安装。"><span class="toc-number">1.</span> <span class="toc-text">2、调出安装页面，点击下一步进行安装，我选择仅数据库服务安装。</span></a></li></ol>
         
     </div>
     <style>
@@ -436,7 +498,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"博客搭建教程　| 荷包蛋　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"项目部署（六）Centos虚拟机安装oracle　| 荷包蛋　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -456,7 +518,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/12/26/项目部署（二）JDK1.8安装/" title="上一篇: 项目部署（二）安装JDK">
+            <a href="/2017/12/27/项目部署（五）Centos虚拟机安装Weblogic/" title="上一篇: 项目部署（五）Centos虚拟机安装weblogic">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -464,7 +526,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/12/26/数据库序列/" title="下一篇: 数据库序列">
+            <a href="/2017/12/26/项目部署（二）JDK1.8安装/" title="下一篇: 项目部署（二）安装JDK">
                 <i class="fa fa-angle-right"></i>
             </a>
         

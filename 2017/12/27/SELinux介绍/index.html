@@ -15,13 +15,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="荷包蛋">
-<meta property="og:url" content="https://github.com/hzxblogs/hzxblogs.github.io.git/categories/Blogs/index.html">
+<meta name="description" content="几乎可以肯定每个人都听说过 SELinux (更准确的说，尝试关闭过)，甚至某些过往的经验让您对 SELinux 产生了偏见。不过随着日益增长的 0-day 安全漏洞，或许现在是时候去了解下这个在 Linux 内核中已经有8年历史的强制性访问控制系统(MAC)了。">
+<meta name="keywords" content="学习记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SELinux介绍">
+<meta property="og:url" content="https://github.com/hzxblogs/hzxblogs.github.io.git/2017/12/27/SELinux介绍/index.html">
 <meta property="og:site_name" content="荷包蛋">
+<meta property="og:description" content="几乎可以肯定每个人都听说过 SELinux (更准确的说，尝试关闭过)，甚至某些过往的经验让您对 SELinux 产生了偏见。不过随着日益增长的 0-day 安全漏洞，或许现在是时候去了解下这个在 Linux 内核中已经有8年历史的强制性访问控制系统(MAC)了。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-12-28T12:45:05.059Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="荷包蛋">
+<meta name="twitter:title" content="SELinux介绍">
+<meta name="twitter:description" content="几乎可以肯定每个人都听说过 SELinux (更准确的说，尝试关闭过)，甚至某些过往的经验让您对 SELinux 产生了偏见。不过随着日益增长的 0-day 安全漏洞，或许现在是时候去了解下这个在 Linux 内核中已经有8年历史的强制性访问控制系统(MAC)了。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -53,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Category: Blogs | 荷包蛋</title>
+<title>SELinux介绍 | 荷包蛋</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -63,10 +68,10 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
-        isCategory: true,
+        isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
         search: true
@@ -262,60 +267,216 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-SELinux介绍" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/12/26/Hexo+Github搭建自己的博客/" class="archive-article-date">
-      <time datetime="2017-12-26T09:28:55.243Z" itemprop="datePublished">12-26</time>
+    <div class="article-meta">
+      <a href="/2017/12/27/SELinux介绍/" class="article-date">
+      <time datetime="2017-12-26T16:00:00.000Z" itemprop="datePublished">2017-12-27</time>
 </a>
 
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/26/Hexo+Github搭建自己的博客/">博客搭建教程</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SELinux介绍
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Blogs/">Blogs</a>
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
     </div>
 
 
-          
+        
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>几乎可以肯定每个人都听说过 SELinux (更准确的说，尝试关闭过)，甚至某些过往的经验让您对 SELinux 产生了偏见。<br>不过随着日益增长的 0-day 安全漏洞，或许现在是时候去了解下这个在 Linux 内核中已经有8年历史的强制性访问控制系统(MAC)了。<br><a id="more"></a></p>
+<blockquote>
+<ul>
+<li><strong>SELinux 与强制访问控制系统</strong> </li>
+</ul>
+</blockquote>
+<hr>
+<p>SELinux 全称 Security Enhanced Linux (安全强化 Linux)，是 MAC (Mandatory Access Control，<br>强制访问控制系统)的一个实现，目的在于明确的指明某个进程可以访问哪些资源(文件、网络端口等)。<br>强制访问控制系统的用途在于增强系统抵御 0-Day 攻击(利用尚未公开的漏洞实现的攻击行为)的能力。所以它不是网络防火墙或 ACL 的替代品，在用途上也不重复。</p>
+<p>举例来说，系统上的 Apache 被发现存在一个漏洞，使得某远程用户可以访问系统上的敏感文件(比如 /etc/passwd 来获得系统已存在用户)，<br>而修复该安全漏洞的 Apache 更新补丁尚未释出。此时 SELinux 可以起到弥补该漏洞的缓和方案。因为 /etc/passwd 不具有 Apache 的访问标签，<br>所以 Apache 对于 /etc/passwd 的访问会被 SELinux 阻止。</p>
+<hr>
+<blockquote>
+<ul>
+<li><strong>SELinux 与强制访问控制系统</strong> </li>
+</ul>
+</blockquote>
+<hr>
+<p>●控制策略是可查询而非程序不可见的。</p>
+<p>●可以热更改策略而无需重启或者停止服务。</p>
+<p>●可以从进程初始化、继承和程序执行三个方面通过策略进行控制。</p>
+<p>●控制范围覆盖文件系统、目录、文件、文件启动描述符、端口、消息接口和网络接口。</p>
+<hr>
+<blockquote>
+<ul>
+<li><strong>SELinux 配置</strong> </li>
+</ul>
+</blockquote>
+<hr>
+<p>1、获取SELinux状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getenforce</span><br></pre></td></tr></table></figure></p>
+<p>可能返回结果有三种：Enforcing、Permissive 和 Disabled。Disabled 代表 SELinux 被禁用，Permissive 代表仅记录安全警告但不阻止可疑行为，<br>Enforcing 代表记录警告且阻止可疑行为。目前常见发行版中，RHEL 和 Fedora 默认设置为 Enforcing，其余的如 openSUSE 等为 Permissive。<br>2、改变 SELinux 运行状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setenforce [ Enforcing | Permissive | 1 | 0 ]</span><br></pre></td></tr></table></figure></p>
+<p>该命令可以立刻改变 SELinux 运行状态，在 Enforcing 和 Permissive 之间切换，结果保持至关机。一个典型的用途是看看到底是不是 SELinux 导致某个服务或者程序无法运行。<br>若是在 setenforce 0 之后服务或者程序依然无法运行，那么就可以肯定不是 SELinux 导致的。<br>若是想要永久变更系统 SELinux 运行环境，可以通过更改配置文件 /etc/sysconfig/selinux 实现。<br>注意当从 Disabled 切换到 Permissive 或者 Enforcing 模式后需要重启计算机并为整个文件系统重新创建安全标签(touch /.autorelabel &amp;&amp; reboot)。<br>3、SELinux 运行策略<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">配置文件 /etc/sysconfig/selinux 还包含了 SELinux 运行策略的信息，通过改变变量 SELINUXTYPE 的值实现，该值有两种可能：</span><br><span class="line">targeted 代表仅针对预制的几种网络服务和访问请求使用 SELinux 保护，strict 代表所有网络服务和访问请求都要经过 SELinux。</span><br><span class="line">RHEL 和 Fedora 默认设置为 targeted，包含了对几乎所有常见网络服务的 SELinux 策略配置，已经默认安装并且可以无需修改直接使用。</span><br><span class="line">若是想自己编辑 SELinux 策略，也提供了命令行下的策略编辑器 seedit 以及 Eclipse 下的编辑插件 eclipse-slide 。</span><br></pre></td></tr></table></figure></p>
+<hr>
+<blockquote>
+<ul>
+<li><strong>SELinux 关闭</strong> </li>
+</ul>
+</blockquote>
+<hr>
+<p>1、临时关闭（不用重启机器）：<br>setenforce 0                  ##设置SELinux 成为permissive模式</p>
+<pre><code>##setenforce 1 设置SELinux 成为enforcing模式
+</code></pre><p>2、修改配置文件需要重启机器：<br>修改/etc/selinux/config 文件<br>将SELINUX=enforcing改为SELINUX=disabled<br>重启机器即可</p>
+<hr>
+
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/12/27/SELinux介绍/">SELinux介绍</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Blog for Y</a></p>
+        <p><span>发布时间:</span>2017-12-27, 00:00:00</p>
+        <p><span>最后更新:</span>2017-12-28, 20:45:05</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/12/27/SELinux介绍/" title="SELinux介绍">https://github.com/hzxblogs/hzxblogs.github.io.git/2017/12/27/SELinux介绍/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://github.com/hzxblogs/hzxblogs.github.io.git/2017/12/27/SELinux介绍/　　作者: Blog for Y" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/12/27/项目部署（三）Centos虚拟机与主机互ping问题/">
+                    项目部署（三）Centos虚拟机与主机互PING
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/12/27/项目部署（四）Centos虚拟机防火墙的打开关闭/">
+                    项目部署（四）Centos虚拟机防火墙的打开关闭
+                </a>
+            </div>
+        
+    </nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"SELinux介绍　| 荷包蛋　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
 
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/12/27/项目部署（三）Centos虚拟机与主机互ping问题/" title="上一篇: 项目部署（三）Centos虚拟机与主机互PING">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/12/27/项目部署（四）Centos虚拟机防火墙的打开关闭/" title="下一篇: 项目部署（四）Centos虚拟机防火墙的打开关闭">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（三）Centos虚拟机与主机互ping问题/">项目部署（三）Centos虚拟机与主机互PING</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/SELinux介绍/">SELinux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（四）Centos虚拟机防火墙的打开关闭/">项目部署（四）Centos虚拟机防火墙的打开关闭</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（五）Centos虚拟机安装Weblogic/">项目部署（五）Centos虚拟机安装weblogic</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（六）虚拟机安装Oracle/">项目部署（六）Centos虚拟机安装oracle</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/项目部署（二）JDK1.8安装/">项目部署（二）安装JDK</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/Hexo+Github搭建自己的博客/">博客搭建教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/数据库序列/">数据库序列</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/项目部署（一）虚拟机的安装/">项目部署（一） VMware14虚拟机安装</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
