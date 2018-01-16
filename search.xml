@@ -3,66 +3,66 @@
   
     
     <entry>
-      <title><![CDATA[��Ŀ���𣨾ţ�Oracle���ռ��Ĵ���]]></title>
+      <title><![CDATA[项目部署（九）Oracle表空间的创建]]></title>
       <url>/2018/01/16/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%EF%BC%889%EF%BC%89Centos%E5%AE%89%E8%A3%85%E5%AE%8COracle%E8%BF%9B%E8%A1%8C%E8%A1%A8%E7%A9%BA%E9%97%B4%E7%9A%84%E5%88%9B%E5%BB%BA/</url>
-      <content type="html"><![CDATA[<p>��װ��Oracle������Ҫ���б��ռ��Ĵ��������Ƚ�����ʲô�б��ռ䣬�Լ����ռ����û������ݿ�����֮���Ĺ�ϵ��<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>安装完Oracle后，需要进行表空间的创建，首先介绍下什么叫表空间，以及表空间与用户与数据库与表之间的关系。<br><a id="more"></a></p>
 <blockquote>
 <ul>
-<li><strong>��������</strong> </li>
+<li><strong>概念介绍</strong> </li>
 </ul>
 </blockquote>
 <hr>
-<p>1������TABLE�������ݿ��������洢���ݵĶ��������нṹ�ġ����ݿ��еı������ݵļ��ϣ����������ݿ�ϵͳ�Ļ�����<br>2��ORACLE���ݿ������е����ݶ������ڱ��ռ��ڣ����ռ���һ���߼��Ľṹ�����޷�ͨ���۲�����ϵͳ�������ռ䡣<br>ÿһ�����ռ䶼�ɽ��������ļ��Ľṹ���ɣ�ÿһ�����ռ���������һ�������������ļ�,ÿ�������ļ�������һ�����ռ䡣<br>3���ڴ�����ʱ,������ĳ�����ռ��д�����.����,ORACLE�Ὣ���������������ɱ��ռ���һ�������ļ��С�<br>��ORACLE���ݿ�10g����,ORACLEΪ�������ͱ�ָ����Ĭ�ϱ��ռ����Ǳ��ع����ı��ռ�.</p>
-<h2 id="�ܽ���˵��һ���u����԰����ݷ���һ�����߶������ռ���-��һ�����ռ����кܶ�����һ�u�������һ�����ռ���u����Է��ʱ��ռ����i���"><a href="#�ܽ���˵��һ���u����԰����ݷ���һ�����߶������ռ���-��һ�����ռ����кܶ�����һ�u�������һ�����ռ���u����Է��ʱ��ռ����i���" class="headerlink" title="�ܽ���˵��һ���û����԰����ݷ���һ�����߶������ռ��� ��һ�����ռ����кܶ�����һ�ű�������һ�����ռ���û����Է��ʱ��ռ����ı��� "></a>�ܽ���˵��һ���û����԰����ݷ���һ�����߶������ռ��� ��һ�����ռ����кܶ�����һ�ű�������һ�����ռ���û����Է��ʱ��ռ����ı��� </h2><blockquote>
+<p>1、表（TABLE）是数据库中用来存储数据的对象，是有结构的。数据库中的表是数据的集合，是整个数据库系统的基础。<br>2、ORACLE数据库中所有的数据都存在于表空间内，表空间是一个逻辑的结构，你无法通过观察操作系统看到表空间。<br>每一个表空间都由叫做数据文件的结构组成，每一个表空间必须包含一个或多个数据文件,每个数据文件仅属于一个表空间。<br>3、在创建表时,可以在某个表空间中创建表.接着,ORACLE会将这个表安放在组成表空间的一个数据文件中。<br>就ORACLE数据库10g而言,ORACLE为所有类型表指定的默认表空间就是本地管理的表空间.</p>
+<h2 id="总结来说：一个用户可以把数据放在一个或者多个表空间里-，一个表空间里有很多表，一张表存放在一个表空间里，用户可以访问表空间里的表。"><a href="#总结来说：一个用户可以把数据放在一个或者多个表空间里-，一个表空间里有很多表，一张表存放在一个表空间里，用户可以访问表空间里的表。" class="headerlink" title="总结来说：一个用户可以把数据放在一个或者多个表空间里 ，一个表空间里有很多表，一张表存放在一个表空间里，用户可以访问表空间里的表。 "></a>总结来说：一个用户可以把数据放在一个或者多个表空间里 ，一个表空间里有很多表，一张表存放在一个表空间里，用户可以访问表空间里的表。 </h2><blockquote>
 <ul>
-<li><strong>��sysdba�û���¼</strong> </li>
+<li><strong>以sysdba用户登录</strong> </li>
 </ul>
 </blockquote>
 <hr>
-<p>��װ���ɺ����˳�oracle�˻�������root�˻���<br>�����浥���Ҽ���ѡ�������ն��д򿪡������룺su - oracle<br>�������룬�л���oracle�û���<br>����������lsnrctl start<br>���룺sqlplus /nolog<br>���룺conn sys/123@orcl as sysdba</p>
-<h2 id="���У�orcl��ʵ������123���������롣����������ͼ��ʾ�g�Connected-�������ӳɹ���˵�����ݿ⽨���ɹ���"><a href="#���У�orcl��ʵ������123���������롣����������ͼ��ʾ�g�Connected-�������ӳɹ���˵�����ݿ⽨���ɹ���" class="headerlink" title="���У�orcl��ʵ������123���������롣����������ͼ��ʾ�ġ�Connected.�������ӳɹ���˵�����ݿ⽨���ɹ���"></a>���У�orcl��ʵ������123���������롣����������ͼ��ʾ�ġ�Connected.�������ӳɹ���˵�����ݿ⽨���ɹ���</h2><blockquote>
+<p>安装完成后，退出oracle账户，进入root账户。<br>在桌面单击右键，选择“在终端中打开”，输入：su - oracle<br>输入密码，切换到oracle用户。<br>启动监听：lsnrctl start<br>输入：sqlplus /nolog<br>输入：conn sys/123@orcl as sysdba</p>
+<h2 id="其中，orcl是实例名，123是它的密码。如果出现下图所示的“Connected-”则连接成功，说明数据库建立成功。"><a href="#其中，orcl是实例名，123是它的密码。如果出现下图所示的“Connected-”则连接成功，说明数据库建立成功。" class="headerlink" title="其中，orcl是实例名，123是它的密码。如果出现下图所示的“Connected.”则连接成功，说明数据库建立成功。"></a>其中，orcl是实例名，123是它的密码。如果出现下图所示的“Connected.”则连接成功，说明数据库建立成功。</h2><blockquote>
 <ul>
-<li><strong>������ʱ���ռ�</strong> </li>
+<li><strong>创建临时表空间</strong> </li>
 </ul>
 </blockquote>
 <hr>
-<p>1���������ռ�<br>�����նˣ����룺su - oracle<br>�������룺<br>���룺sqlplus ��/as sysdba�� (�˴�����dba���ݵ�¼���ݿ⣬ϵͳ�ĳ����û�)</p>
-<p>������ʱ���ռ䣺<br>create temporary tablespace table_test tempfile ‘/data/oracle/table_test.dbf ‘ ����Enter<br>size 1024m ����Enter<br>autoextend on ����Enter<br>next 100m maxsize 10240m ����Enter<br>extent management local; ����Enter</p>
-<p>˵����<br>1) table_test����ʱ���ռ�������<br>2) /data/oracle/table_test.dbf����/data/oracle�½�һ����Ϊtable_test.dbf�ı�(ע�⣺������ΪӢ��״̬�µ�����)��<br>3) 1024m�Ǳ��ռ���ʼ��С��<br>4) 100m�Ǳ��ռ��Զ�������С��<br>5) 10240m�Ǳ��ռ������Ĵ�С��</p>
+<p>1、创建表空间<br>打开终端，输入：su - oracle<br>输入密码：<br>输入：sqlplus “/as sysdba” (此处是用dba身份登录数据库，系统的超级用户)</p>
+<p>创建临时表空间：<br>create temporary tablespace table_test tempfile ‘/data/oracle/table_test.dbf ‘ 点击Enter<br>size 1024m 点击Enter<br>autoextend on 点击Enter<br>next 100m maxsize 10240m 点击Enter<br>extent management local; 点击Enter</p>
+<p>说明：<br>1) table_test是临时表空间的名字<br>2) /data/oracle/table_test.dbf是在/data/oracle下建一个名为table_test.dbf的表(注意：单引号为英文状态下的输入)，<br>3) 1024m是表空间初始大小，<br>4) 100m是表空间自动增长大小，<br>5) 10240m是表空间最大的大小。</p>
 <hr>
 <blockquote>
 <ul>
-<li><strong>�������ݱ��ռ�</strong> </li>
+<li><strong>创建数据表空间</strong> </li>
 </ul>
 </blockquote>
 <hr>
-<p>create tablespace test_data logging datafile ‘/data/oracle/test_data.dbf’ ����Enter<br>size 1024m ����Enter<br>autoextend on ����Enter<br>next 100m maxsize 10240m ����Enter</p>
-<h2 id="extent-management-local-����Enter"><a href="#extent-management-local-����Enter" class="headerlink" title="extent management local; ����Enter"></a>extent management local; ����Enter</h2><blockquote>
+<p>create tablespace test_data logging datafile ‘/data/oracle/test_data.dbf’ 点击Enter<br>size 1024m 点击Enter<br>autoextend on 点击Enter<br>next 100m maxsize 10240m 点击Enter</p>
+<h2 id="extent-management-local-点击Enter"><a href="#extent-management-local-点击Enter" class="headerlink" title="extent management local; 点击Enter"></a>extent management local; 点击Enter</h2><blockquote>
 <ul>
-<li><strong>�����û���ָ�����ռ�</strong> </li>
+<li><strong>创建用户并指定表空间</strong> </li>
 </ul>
 </blockquote>
 <hr>
 <p>create user test identified by test123 default tablespace test_data temporary tablespace table_test;</p>
-<h2 id="����dataΪ�u�����123Ϊ�u����룬table-test����ʱ���ռ������֡�"><a href="#����dataΪ�u�����123Ϊ�u����룬table-test����ʱ���ռ������֡�" class="headerlink" title="����dataΪ�û�����123Ϊ�û����룬table_test����ʱ���ռ������֡�"></a>����dataΪ�û�����123Ϊ�û����룬table_test����ʱ���ռ������֡�</h2><blockquote>
+<h2 id="其中data为用户名，123为用户密码，table-test是临时表空间的名字。"><a href="#其中data为用户名，123为用户密码，table-test是临时表空间的名字。" class="headerlink" title="其中data为用户名，123为用户密码，table_test是临时表空间的名字。"></a>其中data为用户名，123为用户密码，table_test是临时表空间的名字。</h2><blockquote>
 <ul>
-<li><strong>���û���Ȩ</strong> </li>
+<li><strong>给用户授权</strong> </li>
 </ul>
 </blockquote>
 <hr>
-<h2 id="grant-dba-to-data"><a href="#grant-dba-to-data" class="headerlink" title="grant dba to data;"></a>grant dba to data;</h2><p>��ϲ�㣬�Ѿ�������Ŷ��</p>
+<h2 id="grant-dba-to-data"><a href="#grant-dba-to-data" class="headerlink" title="grant dba to data;"></a>grant dba to data;</h2><p>恭喜你，已经完成了哦。</p>
 ]]></content>
       
         <categories>
             
-            <category> ������ </category>
+            <category> 虚拟机 </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> ѧϰ��¼ </tag>
+            <tag> 学习记录 </tag>
             
         </tags>
         
@@ -144,34 +144,54 @@
     </entry>
     
     <entry>
-      <title><![CDATA[项目部署（八）虚拟机VNC Server安装]]></title>
-      <url>/2017/12/27/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%EF%BC%888%EF%BC%89VNC%20Server%E5%AE%89%E8%A3%85/</url>
-      <content type="html"><![CDATA[<p>需要使用Linux的远程桌面服务，xmanager之前用过，感觉一般，这次尝试下VNC。</p>
+      <title><![CDATA[SELinux介绍]]></title>
+      <url>/2017/12/27/SELinux%E4%BB%8B%E7%BB%8D/</url>
+      <content type="html"><![CDATA[<p>几乎可以肯定每个人都听说过 SELinux (更准确的说，尝试关闭过)，甚至某些过往的经验让您对 SELinux 产生了偏见。<br>不过随着日益增长的 0-day 安全漏洞，或许现在是时候去了解下这个在 Linux 内核中已经有8年历史的强制性访问控制系统(MAC)了。<br><a id="more"></a></p>
 <blockquote>
 <ul>
-<li><strong>服务端安装NCServer</strong> </li>
+<li><strong>SELinux 与强制访问控制系统</strong> </li>
 </ul>
 </blockquote>
-<p>1、安装VNCServer<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#yum -y install vnc *vnc-server*</span><br></pre></td></tr></table></figure></p>
-<p>2、设置密码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># vncserver</span><br><span class="line">You will require a password to access your desktops.</span><br><span class="line">Password: 123456            #输入vnc 连接密码</span><br><span class="line">Verify: 123456                 #确认vnc密码</span><br><span class="line">xauth: creating new authority file /root/.Xauthority</span><br><span class="line">New ‘localhost.localdomain:1 (root)’ desktop is localhost.localdomain:1</span><br><span class="line">Creating default startup script /root/.vnc/xstartup</span><br><span class="line">Starting applications specified in /root/.vnc/xstartup</span><br><span class="line">Log file is /root/.vnc/localhost.localdomain:1.log</span><br></pre></td></tr></table></figure>
-<p>3、启动服务</p>
-<p>启动一个窗口，如1号窗口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># vncserver :1</span><br></pre></td></tr></table></figure></p>
-<p>4、停止服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@iZ23zjkwlj8Z ~]# vncserver -kill :1</span><br><span class="line">Killing Xvnc process ID 1661</span><br></pre></td></tr></table></figure>
-<p>5、安装GNOME桌面</p>
-<p>装完后记得重启下vncserver<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#yum groupinstall &quot;GNOME Desktop&quot; &quot;Graphical Administration Tools&quot;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>SELinux 全称 Security Enhanced Linux (安全强化 Linux)，是 MAC (Mandatory Access Control，<br>强制访问控制系统)的一个实现，目的在于明确的指明某个进程可以访问哪些资源(文件、网络端口等)。<br>强制访问控制系统的用途在于增强系统抵御 0-Day 攻击(利用尚未公开的漏洞实现的攻击行为)的能力。所以它不是网络防火墙或 ACL 的替代品，在用途上也不重复。</p>
+<p>举例来说，系统上的 Apache 被发现存在一个漏洞，使得某远程用户可以访问系统上的敏感文件(比如 /etc/passwd 来获得系统已存在用户)，<br>而修复该安全漏洞的 Apache 更新补丁尚未释出。此时 SELinux 可以起到弥补该漏洞的缓和方案。因为 /etc/passwd 不具有 Apache 的访问标签，<br>所以 Apache 对于 /etc/passwd 的访问会被 SELinux 阻止。</p>
+<hr>
 <blockquote>
 <ul>
-<li><strong>客户端安装NCServer</strong> </li>
+<li><strong>SELinux 与强制访问控制系统</strong> </li>
 </ul>
 </blockquote>
-<p>我是Windows，用的客户端<a href="http://www.realvnc.com/，下载对应平台的VNC-Viewer" target="_blank" rel="noopener">http://www.realvnc.com/，下载对应平台的VNC-Viewer</a><br>输入IP:窗口号，ok登录成功<br>网上说的修改 vi /root/.vnc/xstartup才能启动gnome桌面，我没有遇到过这种情况<br>我装完gnome，重启vncserver即可使用了。</p>
+<hr>
+<p>●控制策略是可查询而非程序不可见的。</p>
+<p>●可以热更改策略而无需重启或者停止服务。</p>
+<p>●可以从进程初始化、继承和程序执行三个方面通过策略进行控制。</p>
+<p>●控制范围覆盖文件系统、目录、文件、文件启动描述符、端口、消息接口和网络接口。</p>
+<hr>
+<blockquote>
+<ul>
+<li><strong>SELinux 配置</strong> </li>
+</ul>
+</blockquote>
+<hr>
+<p>1、获取SELinux状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getenforce</span><br></pre></td></tr></table></figure></p>
+<p>可能返回结果有三种：Enforcing、Permissive 和 Disabled。Disabled 代表 SELinux 被禁用，Permissive 代表仅记录安全警告但不阻止可疑行为，<br>Enforcing 代表记录警告且阻止可疑行为。目前常见发行版中，RHEL 和 Fedora 默认设置为 Enforcing，其余的如 openSUSE 等为 Permissive。<br>2、改变 SELinux 运行状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setenforce [ Enforcing | Permissive | 1 | 0 ]</span><br></pre></td></tr></table></figure></p>
+<p>该命令可以立刻改变 SELinux 运行状态，在 Enforcing 和 Permissive 之间切换，结果保持至关机。一个典型的用途是看看到底是不是 SELinux 导致某个服务或者程序无法运行。<br>若是在 setenforce 0 之后服务或者程序依然无法运行，那么就可以肯定不是 SELinux 导致的。<br>若是想要永久变更系统 SELinux 运行环境，可以通过更改配置文件 /etc/sysconfig/selinux 实现。<br>注意当从 Disabled 切换到 Permissive 或者 Enforcing 模式后需要重启计算机并为整个文件系统重新创建安全标签(touch /.autorelabel &amp;&amp; reboot)。<br>3、SELinux 运行策略<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">配置文件 /etc/sysconfig/selinux 还包含了 SELinux 运行策略的信息，通过改变变量 SELINUXTYPE 的值实现，该值有两种可能：</span><br><span class="line">targeted 代表仅针对预制的几种网络服务和访问请求使用 SELinux 保护，strict 代表所有网络服务和访问请求都要经过 SELinux。</span><br><span class="line">RHEL 和 Fedora 默认设置为 targeted，包含了对几乎所有常见网络服务的 SELinux 策略配置，已经默认安装并且可以无需修改直接使用。</span><br><span class="line">若是想自己编辑 SELinux 策略，也提供了命令行下的策略编辑器 seedit 以及 Eclipse 下的编辑插件 eclipse-slide 。</span><br></pre></td></tr></table></figure></p>
+<hr>
+<blockquote>
+<ul>
+<li><strong>SELinux 关闭</strong> </li>
+</ul>
+</blockquote>
+<hr>
+<p>1、临时关闭（不用重启机器）：<br>setenforce 0                  ##设置SELinux 成为permissive模式</p>
+<pre><code>##setenforce 1 设置SELinux 成为enforcing模式
+</code></pre><p>2、修改配置文件需要重启机器：<br>修改/etc/selinux/config 文件<br>将SELINUX=enforcing改为SELINUX=disabled<br>重启机器即可</p>
+<hr>
 ]]></content>
       
         <categories>
             
-            <category> 虚拟机 </category>
+            <category> Linux </category>
             
         </categories>
         
@@ -217,6 +237,120 @@
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">su - oracle</span><br><span class="line">$ DISPLAY=:0.0; export DISPLAY</span><br><span class="line">$ echo $DISPLAY:0.0</span><br><span class="line">$ ls</span><br><span class="line"> doc          response     stage</span><br><span class="line"> install      runInstaller  welcome.html</span><br><span class="line">$ ./runInstaller</span><br></pre></td></tr></table></figure>
 <hr>
+]]></content>
+      
+        <categories>
+            
+            <category> 虚拟机 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 学习记录 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[项目部署（八）虚拟机VNC Server安装]]></title>
+      <url>/2017/12/27/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%EF%BC%888%EF%BC%89VNC%20Server%E5%AE%89%E8%A3%85/</url>
+      <content type="html"><![CDATA[<p>需要使用Linux的远程桌面服务，xmanager之前用过，感觉一般，这次尝试下VNC。</p>
+<blockquote>
+<ul>
+<li><strong>服务端安装NCServer</strong> </li>
+</ul>
+</blockquote>
+<p>1、安装VNCServer<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#yum -y install vnc *vnc-server*</span><br></pre></td></tr></table></figure></p>
+<p>2、设置密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># vncserver</span><br><span class="line">You will require a password to access your desktops.</span><br><span class="line">Password: 123456            #输入vnc 连接密码</span><br><span class="line">Verify: 123456                 #确认vnc密码</span><br><span class="line">xauth: creating new authority file /root/.Xauthority</span><br><span class="line">New ‘localhost.localdomain:1 (root)’ desktop is localhost.localdomain:1</span><br><span class="line">Creating default startup script /root/.vnc/xstartup</span><br><span class="line">Starting applications specified in /root/.vnc/xstartup</span><br><span class="line">Log file is /root/.vnc/localhost.localdomain:1.log</span><br></pre></td></tr></table></figure>
+<p>3、启动服务</p>
+<p>启动一个窗口，如1号窗口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># vncserver :1</span><br></pre></td></tr></table></figure></p>
+<p>4、停止服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@iZ23zjkwlj8Z ~]# vncserver -kill :1</span><br><span class="line">Killing Xvnc process ID 1661</span><br></pre></td></tr></table></figure>
+<p>5、安装GNOME桌面</p>
+<p>装完后记得重启下vncserver<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#yum groupinstall &quot;GNOME Desktop&quot; &quot;Graphical Administration Tools&quot;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<ul>
+<li><strong>客户端安装NCServer</strong> </li>
+</ul>
+</blockquote>
+<p>我是Windows，用的客户端<a href="http://www.realvnc.com/，下载对应平台的VNC-Viewer" target="_blank" rel="noopener">http://www.realvnc.com/，下载对应平台的VNC-Viewer</a><br>输入IP:窗口号，ok登录成功<br>网上说的修改 vi /root/.vnc/xstartup才能启动gnome桌面，我没有遇到过这种情况<br>我装完gnome，重启vncserver即可使用了。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 虚拟机 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 学习记录 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[项目部署（四）Centos虚拟机防火墙的打开关闭]]></title>
+      <url>/2017/12/27/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%EF%BC%884%EF%BC%89Centos%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E6%89%93%E5%BC%80%E5%85%B3%E9%97%AD/</url>
+      <content type="html"><![CDATA[<p>CentOS 7.0默认使用的是firewall作为防火墙。只有关闭了防火墙，才能进行宿主机和虚拟机的互相访问。同理，宿主机也要关闭防火墙。下面我们介绍一下虚拟机防火墙的各种操作。<br><a id="more"></a></p>
+<blockquote>
+<ul>
+<li><strong>查看防火墙状态</strong> </li>
+</ul>
+</blockquote>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd    --state</span><br></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<ul>
+<li><strong>关闭防火墙</strong> </li>
+</ul>
+</blockquote>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl  stop   firewalld.service</span><br></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<ul>
+<li><strong>开启防火墙</strong> </li>
+</ul>
+</blockquote>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl  start   firewalld.service</span><br></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<ul>
+<li><strong>禁止开机启动启动防火墙</strong> </li>
+</ul>
+</blockquote>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl   disable   firewalld.service</span><br></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<ul>
+<li><strong>下面是一些常用的语法的总结</strong></li>
+</ul>
+</blockquote>
+<hr>
+<p>firewall-cmd –state </p>
+<p>##查看防火墙状态，是否是running<br>firewall-cmd –reload </p>
+<p>##重新载入配置，比如添加规则之后，需要执行此命令<br>firewall-cmd –get-zones</p>
+<p>##列出支持的zone<br>firewall-cmd –get-services </p>
+<p>##列出支持的服务，在列表中的服务是放行的<br>firewall-cmd –query-service ftp</p>
+<p>##查看ftp服务是否支持，返回yes或者no<br>firewall-cmd –add-service=ftp </p>
+<p>##临时开放ftp服务<br>firewall-cmd –add-service=ftp –permanent</p>
+<p> ##永久开放ftp服务<br>firewall-cmd –remove-service=ftp –permanent </p>
+<p>##永久移除ftp服务<br>firewall-cmd –add-port=80/tcp –permanent </p>
+<p>##永久添加80端口<br>iptables -L -n </p>
+<p>##查看规则，这个命令是和iptables的相同的<br>man firewall-cmd </p>
+<p>##查看帮助</p>
+<hr>
+<p>恭喜你，已经学会了哦。</p>
 ]]></content>
       
         <categories>
@@ -348,140 +482,6 @@
         <categories>
             
             <category> 虚拟机 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 学习记录 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[项目部署（四）Centos虚拟机防火墙的打开关闭]]></title>
-      <url>/2017/12/27/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%EF%BC%884%EF%BC%89Centos%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E6%89%93%E5%BC%80%E5%85%B3%E9%97%AD/</url>
-      <content type="html"><![CDATA[<p>CentOS 7.0默认使用的是firewall作为防火墙。只有关闭了防火墙，才能进行宿主机和虚拟机的互相访问。同理，宿主机也要关闭防火墙。下面我们介绍一下虚拟机防火墙的各种操作。<br><a id="more"></a></p>
-<blockquote>
-<ul>
-<li><strong>查看防火墙状态</strong> </li>
-</ul>
-</blockquote>
-<hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd    --state</span><br></pre></td></tr></table></figure>
-<hr>
-<blockquote>
-<ul>
-<li><strong>关闭防火墙</strong> </li>
-</ul>
-</blockquote>
-<hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl  stop   firewalld.service</span><br></pre></td></tr></table></figure>
-<hr>
-<blockquote>
-<ul>
-<li><strong>开启防火墙</strong> </li>
-</ul>
-</blockquote>
-<hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl  start   firewalld.service</span><br></pre></td></tr></table></figure>
-<hr>
-<blockquote>
-<ul>
-<li><strong>禁止开机启动启动防火墙</strong> </li>
-</ul>
-</blockquote>
-<hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl   disable   firewalld.service</span><br></pre></td></tr></table></figure>
-<hr>
-<blockquote>
-<ul>
-<li><strong>下面是一些常用的语法的总结</strong></li>
-</ul>
-</blockquote>
-<hr>
-<p>firewall-cmd –state </p>
-<p>##查看防火墙状态，是否是running<br>firewall-cmd –reload </p>
-<p>##重新载入配置，比如添加规则之后，需要执行此命令<br>firewall-cmd –get-zones</p>
-<p>##列出支持的zone<br>firewall-cmd –get-services </p>
-<p>##列出支持的服务，在列表中的服务是放行的<br>firewall-cmd –query-service ftp</p>
-<p>##查看ftp服务是否支持，返回yes或者no<br>firewall-cmd –add-service=ftp </p>
-<p>##临时开放ftp服务<br>firewall-cmd –add-service=ftp –permanent</p>
-<p> ##永久开放ftp服务<br>firewall-cmd –remove-service=ftp –permanent </p>
-<p>##永久移除ftp服务<br>firewall-cmd –add-port=80/tcp –permanent </p>
-<p>##永久添加80端口<br>iptables -L -n </p>
-<p>##查看规则，这个命令是和iptables的相同的<br>man firewall-cmd </p>
-<p>##查看帮助</p>
-<hr>
-<p>恭喜你，已经学会了哦。</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 虚拟机 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 学习记录 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[SELinux介绍]]></title>
-      <url>/2017/12/27/SELinux%E4%BB%8B%E7%BB%8D/</url>
-      <content type="html"><![CDATA[<p>几乎可以肯定每个人都听说过 SELinux (更准确的说，尝试关闭过)，甚至某些过往的经验让您对 SELinux 产生了偏见。<br>不过随着日益增长的 0-day 安全漏洞，或许现在是时候去了解下这个在 Linux 内核中已经有8年历史的强制性访问控制系统(MAC)了。<br><a id="more"></a></p>
-<blockquote>
-<ul>
-<li><strong>SELinux 与强制访问控制系统</strong> </li>
-</ul>
-</blockquote>
-<hr>
-<p>SELinux 全称 Security Enhanced Linux (安全强化 Linux)，是 MAC (Mandatory Access Control，<br>强制访问控制系统)的一个实现，目的在于明确的指明某个进程可以访问哪些资源(文件、网络端口等)。<br>强制访问控制系统的用途在于增强系统抵御 0-Day 攻击(利用尚未公开的漏洞实现的攻击行为)的能力。所以它不是网络防火墙或 ACL 的替代品，在用途上也不重复。</p>
-<p>举例来说，系统上的 Apache 被发现存在一个漏洞，使得某远程用户可以访问系统上的敏感文件(比如 /etc/passwd 来获得系统已存在用户)，<br>而修复该安全漏洞的 Apache 更新补丁尚未释出。此时 SELinux 可以起到弥补该漏洞的缓和方案。因为 /etc/passwd 不具有 Apache 的访问标签，<br>所以 Apache 对于 /etc/passwd 的访问会被 SELinux 阻止。</p>
-<hr>
-<blockquote>
-<ul>
-<li><strong>SELinux 与强制访问控制系统</strong> </li>
-</ul>
-</blockquote>
-<hr>
-<p>●控制策略是可查询而非程序不可见的。</p>
-<p>●可以热更改策略而无需重启或者停止服务。</p>
-<p>●可以从进程初始化、继承和程序执行三个方面通过策略进行控制。</p>
-<p>●控制范围覆盖文件系统、目录、文件、文件启动描述符、端口、消息接口和网络接口。</p>
-<hr>
-<blockquote>
-<ul>
-<li><strong>SELinux 配置</strong> </li>
-</ul>
-</blockquote>
-<hr>
-<p>1、获取SELinux状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getenforce</span><br></pre></td></tr></table></figure></p>
-<p>可能返回结果有三种：Enforcing、Permissive 和 Disabled。Disabled 代表 SELinux 被禁用，Permissive 代表仅记录安全警告但不阻止可疑行为，<br>Enforcing 代表记录警告且阻止可疑行为。目前常见发行版中，RHEL 和 Fedora 默认设置为 Enforcing，其余的如 openSUSE 等为 Permissive。<br>2、改变 SELinux 运行状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setenforce [ Enforcing | Permissive | 1 | 0 ]</span><br></pre></td></tr></table></figure></p>
-<p>该命令可以立刻改变 SELinux 运行状态，在 Enforcing 和 Permissive 之间切换，结果保持至关机。一个典型的用途是看看到底是不是 SELinux 导致某个服务或者程序无法运行。<br>若是在 setenforce 0 之后服务或者程序依然无法运行，那么就可以肯定不是 SELinux 导致的。<br>若是想要永久变更系统 SELinux 运行环境，可以通过更改配置文件 /etc/sysconfig/selinux 实现。<br>注意当从 Disabled 切换到 Permissive 或者 Enforcing 模式后需要重启计算机并为整个文件系统重新创建安全标签(touch /.autorelabel &amp;&amp; reboot)。<br>3、SELinux 运行策略<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">配置文件 /etc/sysconfig/selinux 还包含了 SELinux 运行策略的信息，通过改变变量 SELINUXTYPE 的值实现，该值有两种可能：</span><br><span class="line">targeted 代表仅针对预制的几种网络服务和访问请求使用 SELinux 保护，strict 代表所有网络服务和访问请求都要经过 SELinux。</span><br><span class="line">RHEL 和 Fedora 默认设置为 targeted，包含了对几乎所有常见网络服务的 SELinux 策略配置，已经默认安装并且可以无需修改直接使用。</span><br><span class="line">若是想自己编辑 SELinux 策略，也提供了命令行下的策略编辑器 seedit 以及 Eclipse 下的编辑插件 eclipse-slide 。</span><br></pre></td></tr></table></figure></p>
-<hr>
-<blockquote>
-<ul>
-<li><strong>SELinux 关闭</strong> </li>
-</ul>
-</blockquote>
-<hr>
-<p>1、临时关闭（不用重启机器）：<br>setenforce 0                  ##设置SELinux 成为permissive模式</p>
-<pre><code>##setenforce 1 设置SELinux 成为enforcing模式
-</code></pre><p>2、修改配置文件需要重启机器：<br>修改/etc/selinux/config 文件<br>将SELINUX=enforcing改为SELINUX=disabled<br>重启机器即可</p>
-<hr>
-]]></content>
-      
-        <categories>
-            
-            <category> Linux </category>
             
         </categories>
         
@@ -799,6 +799,30 @@
     </entry>
     
     <entry>
+      <title><![CDATA[项目部署（一） VMware14虚拟机安装]]></title>
+      <url>/2017/12/26/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%EF%BC%881%EF%BC%89%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E5%AE%89%E8%A3%85/</url>
+      <content type="html"><![CDATA[<p>因为本人是Windows系统爱好者，mac系统就不进行讲解了，请大家参照别的博客，谢谢。<br><a id="more"></a></p>
+<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>安装VMware1464位链接：<a href="https://pan.baidu.com/s/1i4G8HLz" target="_blank" rel="noopener">https://pan.baidu.com/s/1i4G8HLz</a> 密码：j5tg<br>安装centos7系统镜像64位链接：<a href="https://pan.baidu.com/s/1nv5l23n" target="_blank" rel="noopener">https://pan.baidu.com/s/1nv5l23n</a> 密码：ueeg</p>
+<h3 id="解压安装包进行安装"><a href="#解压安装包进行安装" class="headerlink" title="解压安装包进行安装"></a>解压安装包进行安装</h3><p>![1.png-68.2kB][1]<br>![2.png-47.4kB][2]<br>![3.png-43.6kB][3]<br>![4.png-39kB][4]<br>![5.png-31.9kB][5]<br>![6.png-34.6kB][6]<br>![7.png-67.9kB][7]<br>![8.png-36.6kB][8]<br>![9.png-65.6kB][9]<br>密钥请在云盘上获取。</p>
+<h3 id="安装虚拟机"><a href="#安装虚拟机" class="headerlink" title="安装虚拟机"></a>安装虚拟机</h3><p> ![2.png-56.8kB][10]<br> ![3.png-34.1kB][11]<br> ![4.png-35.3kB][12]<br> ![5.png-33.7kB][13]<br> ![6.png-29.7kB][14]<br> ![7.png-28.7kB][15]<br> ![8.png-35.7kB][16]<br> ![9.png-35.4kB][17]<br> ![10.png-30.3kB][18]<br> ![11.png-34.3kB][19]<br> ![12.png-37.3kB][20]<br> ![13.png-30.3kB][21]<br> ![14.png-35.7kB][22]<br> ![15.png-73.6kB][23]<br> ![16.png-70.8kB][24]<br> ![17.png-35.7kB][25]<br>  [1]: <a href="http://static.zybuluo.com/Melody-Fair/cty2jyazt0hnrnt9ksgx7ynp/1.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/cty2jyazt0hnrnt9ksgx7ynp/1.png</a><br>  [2]: <a href="http://static.zybuluo.com/Melody-Fair/aslwyjh187hl55cu4v3br37l/2.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/aslwyjh187hl55cu4v3br37l/2.png</a><br>  [3]: <a href="http://static.zybuluo.com/Melody-Fair/jdwa4ldhyxtqvd4y101tprzy/3.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/jdwa4ldhyxtqvd4y101tprzy/3.png</a><br>  [4]: <a href="http://static.zybuluo.com/Melody-Fair/fcs1j5uhjvurizozg1gd8hu5/4.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/fcs1j5uhjvurizozg1gd8hu5/4.png</a><br>  [5]: <a href="http://static.zybuluo.com/Melody-Fair/681xrogoolc8u1ngnxu4ojhg/5.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/681xrogoolc8u1ngnxu4ojhg/5.png</a><br>  [6]: <a href="http://static.zybuluo.com/Melody-Fair/k75bzjlcnrytkto1vxxr87jy/6.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/k75bzjlcnrytkto1vxxr87jy/6.png</a><br>  [7]: <a href="http://static.zybuluo.com/Melody-Fair/azmi9goqk4nuz5jnfsoa8w2a/7.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/azmi9goqk4nuz5jnfsoa8w2a/7.png</a><br>  [8]: <a href="http://static.zybuluo.com/Melody-Fair/0p3cjlaxqbd4kka2zpmg70k2/8.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/0p3cjlaxqbd4kka2zpmg70k2/8.png</a><br>  [9]: <a href="http://static.zybuluo.com/Melody-Fair/u5kkv3fxfqky4pr4m7lny0yf/9.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/u5kkv3fxfqky4pr4m7lny0yf/9.png</a><br>  [10]: <a href="http://static.zybuluo.com/Melody-Fair/tz2aym7ii1p7uif32nf7gg2k/2.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/tz2aym7ii1p7uif32nf7gg2k/2.png</a><br>  [11]: <a href="http://static.zybuluo.com/Melody-Fair/0nrr11gdl3sfjir0i06zca98/3.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/0nrr11gdl3sfjir0i06zca98/3.png</a><br>  [12]: <a href="http://static.zybuluo.com/Melody-Fair/v440pym5f7v8yhgysh9df2zg/4.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/v440pym5f7v8yhgysh9df2zg/4.png</a><br>  [13]: <a href="http://static.zybuluo.com/Melody-Fair/i4tfedo00cu0rrg4nx1c1hfv/5.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/i4tfedo00cu0rrg4nx1c1hfv/5.png</a><br>  [14]: <a href="http://static.zybuluo.com/Melody-Fair/wimonudykmn53lq591fbxeeo/6.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/wimonudykmn53lq591fbxeeo/6.png</a><br>  [15]: <a href="http://static.zybuluo.com/Melody-Fair/lmqal3burm4ada58kzv56s3x/7.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/lmqal3burm4ada58kzv56s3x/7.png</a><br>  [16]: <a href="http://static.zybuluo.com/Melody-Fair/d3qlqrya0y56ly372mb33jg3/8.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/d3qlqrya0y56ly372mb33jg3/8.png</a><br>  [17]: <a href="http://static.zybuluo.com/Melody-Fair/e2glyuqyfy7rhb9yhrsgykwq/9.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/e2glyuqyfy7rhb9yhrsgykwq/9.png</a><br>  [18]: <a href="http://static.zybuluo.com/Melody-Fair/xy4n7tipgk94i8dq2pr52gbk/10.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/xy4n7tipgk94i8dq2pr52gbk/10.png</a><br>  [19]: <a href="http://static.zybuluo.com/Melody-Fair/dwy4iff2ohu2ojqej7lfya64/11.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/dwy4iff2ohu2ojqej7lfya64/11.png</a><br>  [20]: <a href="http://static.zybuluo.com/Melody-Fair/49vjzpug0n5ajvn6yodvwwiw/12.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/49vjzpug0n5ajvn6yodvwwiw/12.png</a><br>  [21]: <a href="http://static.zybuluo.com/Melody-Fair/0vnrf6hnuxnbofpz6gx1w3jr/13.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/0vnrf6hnuxnbofpz6gx1w3jr/13.png</a><br>  [22]: <a href="http://static.zybuluo.com/Melody-Fair/b73b8or3nf2rr3ltffmpb6tg/14.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/b73b8or3nf2rr3ltffmpb6tg/14.png</a><br>  [23]: <a href="http://static.zybuluo.com/Melody-Fair/ybvnbnv7hn3lznrdwwjv7qhl/15.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/ybvnbnv7hn3lznrdwwjv7qhl/15.png</a><br>  [24]: <a href="http://static.zybuluo.com/Melody-Fair/is5onsdrwb5022l9kzkjjl0b/16.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/is5onsdrwb5022l9kzkjjl0b/16.png</a><br>  [25]: <a href="http://static.zybuluo.com/Melody-Fair/xdq5ij2xnucrpc1pcmj8877s/17.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/xdq5ij2xnucrpc1pcmj8877s/17.png</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 虚拟机 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 学习记录 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[数据库序列]]></title>
       <url>/2017/12/26/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%8F%E5%88%97/</url>
       <content type="html"><![CDATA[<p>数据库序列</p>
@@ -815,30 +839,6 @@
         <categories>
             
             <category> 数据库 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 学习记录 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[项目部署（一） VMware14虚拟机安装]]></title>
-      <url>/2017/12/26/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%EF%BC%881%EF%BC%89%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E5%AE%89%E8%A3%85/</url>
-      <content type="html"><![CDATA[<p>因为本人是Windows系统爱好者，mac系统就不进行讲解了，请大家参照别的博客，谢谢。<br><a id="more"></a></p>
-<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>安装VMware1464位链接：<a href="https://pan.baidu.com/s/1i4G8HLz" target="_blank" rel="noopener">https://pan.baidu.com/s/1i4G8HLz</a> 密码：j5tg<br>安装centos7系统镜像64位链接：<a href="https://pan.baidu.com/s/1nv5l23n" target="_blank" rel="noopener">https://pan.baidu.com/s/1nv5l23n</a> 密码：ueeg</p>
-<h3 id="解压安装包进行安装"><a href="#解压安装包进行安装" class="headerlink" title="解压安装包进行安装"></a>解压安装包进行安装</h3><p>![1.png-68.2kB][1]<br>![2.png-47.4kB][2]<br>![3.png-43.6kB][3]<br>![4.png-39kB][4]<br>![5.png-31.9kB][5]<br>![6.png-34.6kB][6]<br>![7.png-67.9kB][7]<br>![8.png-36.6kB][8]<br>![9.png-65.6kB][9]<br>密钥请在云盘上获取。</p>
-<h3 id="安装虚拟机"><a href="#安装虚拟机" class="headerlink" title="安装虚拟机"></a>安装虚拟机</h3><p> ![2.png-56.8kB][10]<br> ![3.png-34.1kB][11]<br> ![4.png-35.3kB][12]<br> ![5.png-33.7kB][13]<br> ![6.png-29.7kB][14]<br> ![7.png-28.7kB][15]<br> ![8.png-35.7kB][16]<br> ![9.png-35.4kB][17]<br> ![10.png-30.3kB][18]<br> ![11.png-34.3kB][19]<br> ![12.png-37.3kB][20]<br> ![13.png-30.3kB][21]<br> ![14.png-35.7kB][22]<br> ![15.png-73.6kB][23]<br> ![16.png-70.8kB][24]<br> ![17.png-35.7kB][25]<br>  [1]: <a href="http://static.zybuluo.com/Melody-Fair/cty2jyazt0hnrnt9ksgx7ynp/1.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/cty2jyazt0hnrnt9ksgx7ynp/1.png</a><br>  [2]: <a href="http://static.zybuluo.com/Melody-Fair/aslwyjh187hl55cu4v3br37l/2.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/aslwyjh187hl55cu4v3br37l/2.png</a><br>  [3]: <a href="http://static.zybuluo.com/Melody-Fair/jdwa4ldhyxtqvd4y101tprzy/3.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/jdwa4ldhyxtqvd4y101tprzy/3.png</a><br>  [4]: <a href="http://static.zybuluo.com/Melody-Fair/fcs1j5uhjvurizozg1gd8hu5/4.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/fcs1j5uhjvurizozg1gd8hu5/4.png</a><br>  [5]: <a href="http://static.zybuluo.com/Melody-Fair/681xrogoolc8u1ngnxu4ojhg/5.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/681xrogoolc8u1ngnxu4ojhg/5.png</a><br>  [6]: <a href="http://static.zybuluo.com/Melody-Fair/k75bzjlcnrytkto1vxxr87jy/6.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/k75bzjlcnrytkto1vxxr87jy/6.png</a><br>  [7]: <a href="http://static.zybuluo.com/Melody-Fair/azmi9goqk4nuz5jnfsoa8w2a/7.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/azmi9goqk4nuz5jnfsoa8w2a/7.png</a><br>  [8]: <a href="http://static.zybuluo.com/Melody-Fair/0p3cjlaxqbd4kka2zpmg70k2/8.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/0p3cjlaxqbd4kka2zpmg70k2/8.png</a><br>  [9]: <a href="http://static.zybuluo.com/Melody-Fair/u5kkv3fxfqky4pr4m7lny0yf/9.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/u5kkv3fxfqky4pr4m7lny0yf/9.png</a><br>  [10]: <a href="http://static.zybuluo.com/Melody-Fair/tz2aym7ii1p7uif32nf7gg2k/2.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/tz2aym7ii1p7uif32nf7gg2k/2.png</a><br>  [11]: <a href="http://static.zybuluo.com/Melody-Fair/0nrr11gdl3sfjir0i06zca98/3.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/0nrr11gdl3sfjir0i06zca98/3.png</a><br>  [12]: <a href="http://static.zybuluo.com/Melody-Fair/v440pym5f7v8yhgysh9df2zg/4.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/v440pym5f7v8yhgysh9df2zg/4.png</a><br>  [13]: <a href="http://static.zybuluo.com/Melody-Fair/i4tfedo00cu0rrg4nx1c1hfv/5.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/i4tfedo00cu0rrg4nx1c1hfv/5.png</a><br>  [14]: <a href="http://static.zybuluo.com/Melody-Fair/wimonudykmn53lq591fbxeeo/6.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/wimonudykmn53lq591fbxeeo/6.png</a><br>  [15]: <a href="http://static.zybuluo.com/Melody-Fair/lmqal3burm4ada58kzv56s3x/7.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/lmqal3burm4ada58kzv56s3x/7.png</a><br>  [16]: <a href="http://static.zybuluo.com/Melody-Fair/d3qlqrya0y56ly372mb33jg3/8.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/d3qlqrya0y56ly372mb33jg3/8.png</a><br>  [17]: <a href="http://static.zybuluo.com/Melody-Fair/e2glyuqyfy7rhb9yhrsgykwq/9.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/e2glyuqyfy7rhb9yhrsgykwq/9.png</a><br>  [18]: <a href="http://static.zybuluo.com/Melody-Fair/xy4n7tipgk94i8dq2pr52gbk/10.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/xy4n7tipgk94i8dq2pr52gbk/10.png</a><br>  [19]: <a href="http://static.zybuluo.com/Melody-Fair/dwy4iff2ohu2ojqej7lfya64/11.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/dwy4iff2ohu2ojqej7lfya64/11.png</a><br>  [20]: <a href="http://static.zybuluo.com/Melody-Fair/49vjzpug0n5ajvn6yodvwwiw/12.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/49vjzpug0n5ajvn6yodvwwiw/12.png</a><br>  [21]: <a href="http://static.zybuluo.com/Melody-Fair/0vnrf6hnuxnbofpz6gx1w3jr/13.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/0vnrf6hnuxnbofpz6gx1w3jr/13.png</a><br>  [22]: <a href="http://static.zybuluo.com/Melody-Fair/b73b8or3nf2rr3ltffmpb6tg/14.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/b73b8or3nf2rr3ltffmpb6tg/14.png</a><br>  [23]: <a href="http://static.zybuluo.com/Melody-Fair/ybvnbnv7hn3lznrdwwjv7qhl/15.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/ybvnbnv7hn3lznrdwwjv7qhl/15.png</a><br>  [24]: <a href="http://static.zybuluo.com/Melody-Fair/is5onsdrwb5022l9kzkjjl0b/16.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/is5onsdrwb5022l9kzkjjl0b/16.png</a><br>  [25]: <a href="http://static.zybuluo.com/Melody-Fair/xdq5ij2xnucrpc1pcmj8877s/17.png" target="_blank" rel="noopener">http://static.zybuluo.com/Melody-Fair/xdq5ij2xnucrpc1pcmj8877s/17.png</a></p>
-]]></content>
-      
-        <categories>
-            
-            <category> 虚拟机 </category>
             
         </categories>
         
