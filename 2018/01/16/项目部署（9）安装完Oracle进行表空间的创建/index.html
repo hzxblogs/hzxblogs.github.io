@@ -14,17 +14,19 @@
 <meta name="author" content="Blog for Y" />
 
 
-    
-    
 
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="荷包蛋">
-<meta property="og:url" content="https://github.com/hzxblogs/hzxblogs.github.io.git/page/2/index.html">
+<meta name="description" content="安装完Oracle后，需要进行表空间的创建，首先介绍下什么叫表空间，以及表空间与用户与数据库与表之间的关系。">
+<meta name="keywords" content="学习记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目部署（9）Oracle表空间的创建">
+<meta property="og:url" content="https://github.com/hzxblogs/hzxblogs.github.io.git/2018/01/16/项目部署（9）安装完Oracle进行表空间的创建/index.html">
 <meta property="og:site_name" content="荷包蛋">
+<meta property="og:description" content="安装完Oracle后，需要进行表空间的创建，首先介绍下什么叫表空间，以及表空间与用户与数据库与表之间的关系。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-01-16T01:13:29.228Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="荷包蛋">
+<meta name="twitter:title" content="项目部署（9）Oracle表空间的创建">
+<meta name="twitter:description" content="安装完Oracle后，需要进行表空间的创建，首先介绍下什么叫表空间，以及表空间与用户与数据库与表之间的关系。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -52,13 +54,11 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
-    <style> .article { opacity: 0;} </style>
-
 
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>荷包蛋</title>
+<title>项目部署（9）Oracle表空间的创建 | 荷包蛋</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -67,8 +67,8 @@
     var yiliaConfig = {
         fancybox: true,
         animate: true,
-        isHome: true,
-        isPost: false,
+        isHome: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -267,13 +267,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-数据库序列" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-项目部署（9）安装完Oracle进行表空间的创建" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/12/26/数据库序列/" class="article-date">
-      <time datetime="2017-12-25T16:00:00.000Z" itemprop="datePublished">2017-12-26</time>
+      <a href="/2018/01/16/项目部署（9）安装完Oracle进行表空间的创建/" class="article-date">
+      <time datetime="2018-01-16T01:02:38.622Z" itemprop="datePublished">2018-01-16</time>
 </a>
 
 
@@ -287,116 +285,168 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/26/数据库序列/">数据库序列</a>
+    <h1 class="article-title" itemprop="name">
+      项目部署（9）Oracle表空间的创建
     </h1>
   
 
       </header>
       
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>数据库序列</p>
-<p>在ORACLE数据库中，什么是序列呢？它的用途是什么？序列其实是序列号生成器，可以为表中的行自动生成序列号，产生一组等间隔的数值。（类型为数字），其主要的用途是生成表的主键值，可以在插入语句中引用，也可以通过查询检查当前值，或使序列增加至下一个值。<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/数据库/">数据库</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2017/12/26/数据库序列/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-项目部署（1）虚拟机的安装" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/12/26/项目部署（1）虚拟机的安装/" class="article-date">
-      <time datetime="2017-12-25T16:00:00.000Z" itemprop="datePublished">2017-12-26</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+      <div class="article-info article-info-post">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/26/项目部署（1）虚拟机的安装/">项目部署（1） VMware14虚拟机安装</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>因为本人是Windows系统爱好者，mac系统就不进行讲解了，请大家参照别的博客，谢谢。<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/虚拟机/">虚拟机</a>
     </div>
 
 
-      
+        
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
     </div>
 
+        <div class="clearfix"></div>
+      </div>
       
-        <p class="article-more-link">
-          <a href="/2017/12/26/项目部署（1）虚拟机的安装/#more">more >></a>
-        </p>
+    
+    <div class="article-entry" itemprop="articleBody">
       
-      <div class="clearfix"></div>
+          
+        <p>安装完Oracle后，需要进行表空间的创建，首先介绍下什么叫表空间，以及表空间与用户与数据库与表之间的关系。<br><a id="more"></a></p>
+<blockquote>
+<ul>
+<li><strong>概念介绍</strong> </li>
+</ul>
+</blockquote>
+<hr>
+<p>1、表（TABLE）是数据库中用来存储数据的对象，是有结构的。数据库中的表是数据的集合，是整个数据库系统的基础。<br>2、ORACLE数据库中所有的数据都存在于表空间内，表空间是一个逻辑的结构，你无法通过观察操作系统看到表空间。<br>每一个表空间都由叫做数据文件的结构组成，每一个表空间必须包含一个或多个数据文件,每个数据文件仅属于一个表空间。<br>3、在创建表时,可以在某个表空间中创建表.接着,ORACLE会将这个表安放在组成表空间的一个数据文件中。<br>就ORACLE数据库10g而言,ORACLE为所有类型表指定的默认表空间就是本地管理的表空间.</p>
+<p>总结来说：一个用户可以把数据放在一个或者多个表空间里 ，一个表空间里有很多表，一张表存放在一个表空间里，用户可以访问表空间里的表。 </p>
+<hr>
+<blockquote>
+<ul>
+<li><strong>以sysdba用户登录</strong> </li>
+</ul>
+</blockquote>
+<hr>
+<p>安装完成后，退出oracle账户，进入root账户。<br>在桌面单击右键，选择“在终端中打开”，输入：su - oracle<br>输入密码，切换到oracle用户。<br>启动监听：lsnrctl start<br>输入：sqlplus /nolog<br>输入：conn sys/123@orcl as sysdba<br>其中，orcl是实例名，123是它的密码。如果出现下图所示的“Connected.”则连接成功，说明数据库建立成功。</p>
+<hr>
+<blockquote>
+<ul>
+<li><strong>创建临时表空间</strong> </li>
+</ul>
+</blockquote>
+<hr>
+<p>1、创建表空间<br>打开终端，输入：su - oracle<br>输入密码：<br>输入：sqlplus “/as sysdba” (此处是用dba身份登录数据库，系统的超级用户)</p>
+<p>创建临时表空间：<br>create temporary tablespace table_test tempfile ‘/data/oracle/table_test.dbf ‘ 点击Enter<br>size 1024m 点击Enter<br>autoextend on 点击Enter<br>next 100m maxsize 10240m 点击Enter<br>extent management local; 点击Enter</p>
+<p>说明：<br>1) table_test是临时表空间的名字<br>2) /data/oracle/table_test.dbf是在/data/oracle下建一个名为table_test.dbf的表(注意：单引号为英文状态下的输入)，<br>3) 1024m是表空间初始大小，<br>4) 100m是表空间自动增长大小，<br>5) 10240m是表空间最大的大小。</p>
+<hr>
+<blockquote>
+<ul>
+<li><strong>创建数据表空间</strong> </li>
+</ul>
+</blockquote>
+<hr>
+<p>create tablespace test_data logging datafile ‘/data/oracle/test_data.dbf’ 点击Enter<br>size 1024m 点击Enter<br>autoextend on 点击Enter<br>next 100m maxsize 10240m 点击Enter<br>extent management local; 点击Enter</p>
+<hr>
+<blockquote>
+<ul>
+<li><strong>创建用户并指定表空间</strong> </li>
+</ul>
+</blockquote>
+<hr>
+<p>create user test identified by test123 default tablespace test_data temporary tablespace table_test;<br>其中data为用户名，123为用户密码，table_test是临时表空间的名字。</p>
+<hr>
+<blockquote>
+<ul>
+<li><strong>给用户授权</strong> </li>
+</ul>
+</blockquote>
+<hr>
+<p>grant dba to data;</p>
+<hr>
+<p>恭喜你，已经完成了哦。</p>
+
+      
     </div>
     
   </div>
   
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2018/01/16/项目部署（9）安装完Oracle进行表空间的创建/">项目部署（9）Oracle表空间的创建</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">Blog for Y</a></p>
+        <p><span>Created:</span>2018-01-16, 09:02:38</p>
+        <p><span>Updated:</span>2018-01-16, 09:13:29</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/2018/01/16/项目部署（9）安装完Oracle进行表空间的创建/" title="项目部署（9）Oracle表空间的创建">https://github.com/hzxblogs/hzxblogs.github.io.git/2018/01/16/项目部署（9）安装完Oracle进行表空间的创建/</a>
+            <span class="copy-path" data-clipboard-text="From https://github.com/hzxblogs/hzxblogs.github.io.git/2018/01/16/项目部署（9）安装完Oracle进行表空间的创建/　　By Blog for Y" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/12/27/项目部署（3）Centos虚拟机与主机互ping问题/">
+                    项目部署（3）Centos虚拟机与主机互PING
+                </a>
+            </div>
+        
+    </nav>
+
+  
 </article>
 
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+            
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+    <script>
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"项目部署（9）Oracle表空间的创建　| 荷包蛋　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
 
 
 
@@ -404,13 +454,33 @@
 
 
 
+    
 
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
-  
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/12/27/项目部署（3）Centos虚拟机与主机互ping问题/" title="Next: 项目部署（3）Centos虚拟机与主机互PING">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/01/16/项目部署（9）安装完Oracle进行表空间的创建/">项目部署（9）Oracle表空间的创建</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（3）Centos虚拟机与主机互ping问题/">项目部署（3）Centos虚拟机与主机互PING</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/SELinux介绍/">SELinux介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（5）Centos虚拟机安装Weblogic/">项目部署（5）Centos虚拟机安装weblogic</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（7）Oracle安装常见错误/">项目部署（7）Centos虚拟机安装oracle报错display at least 256colors</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（6）虚拟机安装Oracle/">项目部署（6）Centos虚拟机安装oracle</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（4）Centos虚拟机防火墙的打开关闭/">项目部署（4）Centos虚拟机防火墙的打开关闭</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/27/项目部署（8）VNC Server安装/">项目部署（8）虚拟机VNC Server安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/项目部署（2）JDK1.8安装/">项目部署（2）安装JDK</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/Hexo+Github搭建自己的博客/">博客搭建教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/数据库序列/">数据库序列</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/项目部署（1）虚拟机的安装/">项目部署（1） VMware14虚拟机安装</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
