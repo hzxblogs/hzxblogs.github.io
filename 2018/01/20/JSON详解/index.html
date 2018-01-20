@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="CentOS 7.0默认使用的是firewall作为防火墙。只有关闭了防火墙，才能进行宿主机和虚拟机的互相访问。同理，宿主机也要关闭防火墙。下面我们介绍一下虚拟机防火墙的各种操作。">
-<meta name="keywords" content="学习记录">
+<meta name="description" content="�����ͰͿ�����fastjson.jar�ر����ã��ܵ�������ũ���ձ�������">
+<meta name="keywords" content="ѧϰ��¼">
 <meta property="og:type" content="article">
-<meta property="og:title" content="项目部署（4）Centos虚拟机防火墙的打开关闭">
-<meta property="og:url" content="https://github.com/hzxblogs/hzxblogs.github.io.git/2017/12/27/项目部署（4）Centos虚拟机防火墙的打开关闭/index.html">
+<meta property="og:title" content="JSON����">
+<meta property="og:url" content="https://github.com/hzxblogs/hzxblogs.github.io.git/2018/01/20/JSON详解/index.html">
 <meta property="og:site_name" content="荷包蛋">
-<meta property="og:description" content="CentOS 7.0默认使用的是firewall作为防火墙。只有关闭了防火墙，才能进行宿主机和虚拟机的互相访问。同理，宿主机也要关闭防火墙。下面我们介绍一下虚拟机防火墙的各种操作。">
+<meta property="og:description" content="�����ͰͿ�����fastjson.jar�ر����ã��ܵ�������ũ���ձ�������">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-16T01:11:28.063Z">
+<meta property="og:updated_time" content="2018-01-20T06:20:09.820Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="项目部署（4）Centos虚拟机防火墙的打开关闭">
-<meta name="twitter:description" content="CentOS 7.0默认使用的是firewall作为防火墙。只有关闭了防火墙，才能进行宿主机和虚拟机的互相访问。同理，宿主机也要关闭防火墙。下面我们介绍一下虚拟机防火墙的各种操作。">
+<meta name="twitter:title" content="JSON����">
+<meta name="twitter:description" content="�����ͰͿ�����fastjson.jar�ر����ã��ܵ�������ũ���ձ�������">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>项目部署（4）Centos虚拟机防火墙的打开关闭 | 荷包蛋</title>
+<title>JSON���� | 荷包蛋</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -267,11 +267,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-项目部署（4）Centos虚拟机防火墙的打开关闭" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-JSON详解" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/12/27/项目部署（4）Centos虚拟机防火墙的打开关闭/" class="article-date">
-      <time datetime="2017-12-26T16:00:00.000Z" itemprop="datePublished">2017-12-27</time>
+      <a href="/2018/01/20/JSON详解/" class="article-date">
+      <time datetime="2018-01-20T06:22:13.971Z" itemprop="datePublished">2018-01-20</time>
 </a>
 
 
@@ -286,7 +286,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      项目部署（4）Centos虚拟机防火墙的打开关闭
+      JSON����
     </h1>
   
 
@@ -295,13 +295,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/虚拟机/">虚拟机</a>
+    <a class="article-category-link" href="/categories/JSON/">JSON</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ѧϰ��¼/">ѧϰ��¼</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -311,59 +311,87 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>CentOS 7.0默认使用的是firewall作为防火墙。只有关闭了防火墙，才能进行宿主机和虚拟机的互相访问。同理，宿主机也要关闭防火墙。下面我们介绍一下虚拟机防火墙的各种操作。<br><a id="more"></a></p>
+        <p>�����ͰͿ�����fastjson.jar�ر����ã��ܵ�������ũ���ձ�������<br><a id="more"></a></p>
 <blockquote>
 <ul>
-<li><strong>查看防火墙状态</strong> </li>
+<li><strong>��������</strong> </li>
 </ul>
 </blockquote>
 <hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd    --state</span><br></pre></td></tr></table></figure>
+<p>JSON��ȫ���ǡ�JavaScript Object Notation������˼��JavaScript������ʾ��������һ�ֻ����ı������������Ե����������ݽ�����ʽ��<br>XMLҲ��һ�����ݽ�����ʽ��Ϊʲôû��ѡ��XML�أ�<br>��ΪXML��Ȼ������Ϊ��ƽ̨�����ݽ�����ʽ��������JS(JavaScript�ļ�д)�д���XML�ǳ������㣬ͬʱXML���Ǳ����ݶ࣬�����˽���������������<br>��JSONû�и��ӵ��κα��ǣ���JS�п���Ϊ�����������������Ǹ�������ѡ��JSON���������ݡ���ƪ������Ҫ�����¼���������˵��JSON��</p>
 <hr>
 <blockquote>
 <ul>
-<li><strong>关闭防火墙</strong> </li>
+<li><strong>JSON�����ֽṹ</strong> </li>
 </ul>
 </blockquote>
 <hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl  stop   firewalld.service</span><br></pre></td></tr></table></figure>
+<p>JSON�����ֱ�ʾ�ṹ�����������顣<br>�����ṹ�ԡ�{�������ſ�ʼ���ԡ�}�������Ž������м䲿����0�������ԡ������ָ��ġ�key(�ؼ���)/value(ֵ)���Թ��ɣ��ؼ��ֺ�ֵ֮���ԡ������ָ����﷨�ṹ�����롣</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    key1:value1,</span><br><span class="line">    key2:value2,</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>���йؼ������ַ�������ֵ�������ַ�������ֵ��true,false,null,���������顣</p>
+<p>�����ṹ�ԡ�[����ʼ����]���������м���0�������ԡ������ָ���ֵ�б����ɣ��﷨�ṹ�����롣<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        key1:value1,</span><br><span class="line">        key2:value2 </span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">         key3:value3,</span><br><span class="line">         key4:value4   </span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
 <hr>
 <blockquote>
 <ul>
-<li><strong>开启防火墙</strong> </li>
+<li><strong>��ʶJSON�ַ�����JSON����������</strong> </li>
 </ul>
 </blockquote>
 <hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl  start   firewalld.service</span><br></pre></td></tr></table></figure>
+<p>JSON�ַ���������JSON��ʽ���ַ�����<br>JSON���󣺾��Ƿ��ϸ�ʽҪ���Ķ�����<br>���磺<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var jsonStr = &quot;&#123;StudentID:&apos;100&apos;,Name:&apos;tmac&apos;,Hometown:&apos;usa&apos;&#125;&quot;;</span><br><span class="line">var jsonObj = &#123; StudentID: &quot;100&quot;, Name: &quot;tmac&quot;, Hometown: &quot;usa&quot; &#125;;</span><br></pre></td></tr></table></figure></p>
 <hr>
 <blockquote>
 <ul>
-<li><strong>禁止开机启动启动防火墙</strong> </li>
+<li><strong>js������ʹ��JSON</strong> </li>
 </ul>
 </blockquote>
 <hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl   disable   firewalld.service</span><br></pre></td></tr></table></figure>
+<p>JSON���壺<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">            &quot;1&quot;: &quot;value1&quot;,</span><br><span class="line">            &quot;2&quot;: &quot;value2&quot;,</span><br><span class="line">            &quot;count&quot;: &quot;3&quot;,</span><br><span class="line">            &quot;person&quot;: [ //�����ṹJSON���󣬿���Ƕ��ʹ��</span><br><span class="line">				&#123;</span><br><span class="line">					&quot;id&quot;: 1,</span><br><span class="line">					&quot;name&quot;: &quot;����&quot;</span><br><span class="line">				&#125;,</span><br><span class="line">				&#123;</span><br><span class="line">					id: 2,</span><br><span class="line">					name: &quot;����&quot;</span><br><span class="line">				&#125;</span><br><span class="line">            ],</span><br><span class="line">            &quot;object&quot;: &#123; //�����ṹJSON����</span><br><span class="line">                id: 1,</span><br><span class="line">                msg: &quot;�������Ķ���&quot;    </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">	</span><br><span class="line">	alert(obj[&quot;1&quot;]);</span><br><span class="line">	alert(obj.person[0].id);</span><br></pre></td></tr></table></figure></p>
+<p>JSON��ȡ�޸�ɾ������</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function ReadJSON()&#123;</span><br><span class="line">	alert(obj[&quot;1&quot;]); </span><br><span class="line">	alert(obj[&quot;2&quot;]); </span><br><span class="line"></span><br><span class="line">	alert(obj.person[0].name); //����alert(obj.person[0][&quot;name&quot;])</span><br><span class="line">	alert(obj.object.msg); //����alert(obj.object[&quot;msg&quot;]);</span><br><span class="line">	delete obj.object.msg;//ɾ������</span><br><span class="line">	obj.object.msg=&quot;asdasdas&quot;;//��������</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <blockquote>
 <ul>
-<li><strong>下面是一些常用的语法的总结</strong></li>
+<li><strong>JS��json��ת��</strong> </li>
 </ul>
 </blockquote>
 <hr>
-<p>firewall-cmd –state </p>
-<p>##查看防火墙状态，是否是running<br>firewall-cmd –reload </p>
-<p>##重新载入配置，比如添加规则之后，需要执行此命令<br>firewall-cmd –get-zones</p>
-<p>##列出支持的zone<br>firewall-cmd –get-services </p>
-<p>##列出支持的服务，在列表中的服务是放行的<br>firewall-cmd –query-service ftp</p>
-<p>##查看ftp服务是否支持，返回yes或者no<br>firewall-cmd –add-service=ftp </p>
-<p>##临时开放ftp服务<br>firewall-cmd –add-service=ftp –permanent</p>
-<p> ##永久开放ftp服务<br>firewall-cmd –remove-service=ftp –permanent </p>
-<p>##永久移除ftp服务<br>firewall-cmd –add-port=80/tcp –permanent </p>
-<p>##永久添加80端口<br>iptables -L -n </p>
-<p>##查看规则，这个命令是和iptables的相同的<br>man firewall-cmd </p>
-<p>##查看帮助</p>
+<p>JSON.parse();eval();JSON.stringify();</p>
+<p>���ڱ�׼��json�ַ��������ǿ�����JSON.parse(objstr);��JSON�ַ���ת��ΪJSON������<br>ͬ���� ���ǻ����Ե���JSON.stringify(obj);��JSON����תΪJSON�ַ�����<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var G = &apos;&#123; &quot;a&quot; : 1 , &quot;b&quot; : window.location.href=&quot;https://www.baidu.com&quot; &#125;&apos;;</span><br><span class="line">var obj = &apos;&#123;&quot;count&quot;: &quot;3&quot;,&quot;ss&quot;:&quot;opop&quot;&#125;&apos;;</span><br><span class="line">alert(JSON.parse(obj));</span><br><span class="line">alert(eval(&quot;(&quot;+G+&quot;)&quot;));</span><br></pre></td></tr></table></figure></p>
+<p>���⣺<br>JSON.parse()ֻ��ת����׼��json�ַ�������eval(“(“+G+”)”);��ת������׼���ַ��������� var A = “{  a: 1 , b : ‘hello’ }”;<br>��ͬʱҲ����һ�����⣬������eval����G��ʱ����ֱ����ת���ٶ���ҳ�ˣ������ܲ���ȫ������������ת����ʱ��Ҫ��JSON.parse()��</p>
 <hr>
-<p>恭喜你，已经学会了哦。</p>
+<blockquote>
+<ul>
+<li><strong>java�е�JSONʹ��</strong> </li>
+</ul>
+</blockquote>
+<hr>
+<pre><code>List list = new ArrayList();
+list.add(0,&quot;1000&quot;);
+list.add(1,&quot;2000&quot;);
+
+Map map = new HashMap&lt;&gt;();
+map.put(&quot;class&quot;,&quot;9.1&quot;);
+map.put(&quot;school&quot;,&quot;erlong&quot;);
+map.put(&quot;List&quot;, list);
+
+JSONObject obj = new JSONObject();
+String jsonstr = JSON.toJSONString(map);//��json�ַ���
+
+System.out.println(jsonstr);
+
+JSONObject obj2 = JSON.parseObject(jsonstr);//json�ַ���תΪJSON����
+
+JSONArray jsarr=obj2.getJSONArray(&quot;List&quot;);//ȡJSON�е�list����
+
+System.out.println(jsarr.toString());
+
+
+Date date = new Date();
+String s = JSON.toJSONStringWithDateFormat(date,&quot;yyyy-MM-dd&quot;);
+
+System.out.println(s);
+</code></pre><hr>
+<p>��ϲ�㣬�Ѿ�ѧ���˹���</p>
 
       
     </div>
@@ -372,13 +400,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/12/27/项目部署（4）Centos虚拟机防火墙的打开关闭/">项目部署（4）Centos虚拟机防火墙的打开关闭</a></p>
+        <p><span>本文标题:</span><a href="/2018/01/20/JSON详解/">JSON����</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Blog for Y</a></p>
-        <p><span>发布时间:</span>2017-12-27, 00:00:00</p>
-        <p><span>最后更新:</span>2018-01-16, 09:11:28</p>
+        <p><span>发布时间:</span>2018-01-20, 14:22:13</p>
+        <p><span>最后更新:</span>2018-01-20, 14:20:09</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/12/27/项目部署（4）Centos虚拟机防火墙的打开关闭/" title="项目部署（4）Centos虚拟机防火墙的打开关闭">https://github.com/hzxblogs/hzxblogs.github.io.git/2017/12/27/项目部署（4）Centos虚拟机防火墙的打开关闭/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://github.com/hzxblogs/hzxblogs.github.io.git/2017/12/27/项目部署（4）Centos虚拟机防火墙的打开关闭/　　作者: Blog for Y" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/01/20/JSON详解/" title="JSON����">https://github.com/hzxblogs/hzxblogs.github.io.git/2018/01/20/JSON详解/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://github.com/hzxblogs/hzxblogs.github.io.git/2018/01/20/JSON详解/　　作者: Blog for Y" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -391,15 +419,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/12/27/项目部署（8）VNC Server安装/">
-                    项目部署（8）虚拟机VNC Server安装
+                <a href="/2018/01/20/SM4加密工具类使用/">
+                    SM4���ܹ�����ʹ��
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/12/27/项目部署（5）Centos虚拟机安装Weblogic/">
-                    项目部署（5）Centos虚拟机安装weblogic
+                <a href="/2018/01/16/项目部署（9）安装完Oracle进行表空间的创建/">
+                    项目部署（9）Oracle表空间的创建
                 </a>
             </div>
         
@@ -447,7 +475,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"项目部署（4）Centos虚拟机防火墙的打开关闭　| 荷包蛋　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"JSON����　| 荷包蛋　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -467,7 +495,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/12/27/项目部署（8）VNC Server安装/" title="上一篇: 项目部署（8）虚拟机VNC Server安装">
+            <a href="/2018/01/20/SM4加密工具类使用/" title="上一篇: SM4���ܹ�����ʹ��">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -475,7 +503,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/12/27/项目部署（5）Centos虚拟机安装Weblogic/" title="下一篇: 项目部署（5）Centos虚拟机安装weblogic">
+            <a href="/2018/01/16/项目部署（9）安装完Oracle进行表空间的创建/" title="下一篇: 项目部署（9）Oracle表空间的创建">
                 <i class="fa fa-angle-right"></i>
             </a>
         
